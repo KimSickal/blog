@@ -12,7 +12,7 @@ class App extends React.Component {
         </p>
         {
           data.map((value, i) => {
-            return <ArtworkComponent image = {value.image[0]} text = {value.text} key = {i} />
+            return <ArtworkComponent image ={value.image} markdownAddress={value.text} key = {i} />
           })
         }
       </div>

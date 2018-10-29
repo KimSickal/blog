@@ -1,18 +1,20 @@
 export const data = [
     {
+        date: "2018-10-29",
         image: [
             "test.png",
         ],
-        name: 'poster1',
-        text: "simple image and text",
+        title: 'poster1',
+        text: "readme.md",
         type: 'artwork',
     },
     {
+        date: "2018-10-29",
         image: [
             "test.png",
         ],
-        name: 'poster2',
-        text: "same as above",
+        title: 'poster2',
+        text: "readme.md",
         type: 'artwork',
     },
 ]
