@@ -12,20 +12,20 @@ class App extends React.Component<{}, ComponentStates> {
     super(props);
     this.state = { data: [] };
   }
-  componentDidMount(){
+  componentDidMount() {
     this.setState({
       data: require('./data/data.json'),
     })
   }
   public render() {
     return (
-      <div>
+      <div className="App">
         <p>
           Comming Soon
         </p>
         {
           this.state.data.map((value, i) => {
-            return <ArtworkComponent image={value.images} markdownAddress={value.text} key={i} />
+            return <ArtworkComponent images={value.images} markdownAddress={value.text} key={i} />
           })
         }
       </div>

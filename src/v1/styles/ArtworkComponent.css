@@ -1,0 +1,16 @@
+.Artwork {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+}
+.Artwork > img {
+    display: flex;
+}
+.Markdown {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}

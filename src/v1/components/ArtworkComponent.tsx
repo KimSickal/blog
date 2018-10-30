@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as ReactMarkdown from 'react-markdown';
+import '../styles/ArtworkComponent.css';
 
 interface ComponentProps {
-  image: string[];
+  images: string[];
   markdownAddress: string;
 }
 
@@ -15,22 +16,33 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
     super(props)
     this.state = { text: "" };
   }
-  componentDidMount(){
+  componentDidMount() {
     fetch(require('../../data/text/README.md')).then((response) => {
       return response.text().then((markdownText) => {
         this.setState({ text: markdownText });
       })
     })
   }
-  
+
   public render() {
     const {
-      image,
+      images,
     } = this.props;
     return (
-      <div className='Artwork'>
-        <img src={require(`../../data/image/${image[0]}`)} />
-        <ReactMarkdown source={this.state.text} />
+      <div
+        className='Artwork'
+        style={{
+          width: 600
+        }}
+      >
+        {
+          images.map((image, i) => {
+            return <img src={require(`../../data/image/${image}`)} key={i} />
+          })
+        }
+        <div className='Markdown'>
+          <ReactMarkdown source={this.state.text} />
+        </div>
       </div>
     );
   }

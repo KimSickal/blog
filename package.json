@@ -5,6 +5,7 @@
   "homepage": "https://kimsickal.github.io/blog/",
   "dependencies": {
     "gh-pages": "^2.0.1",
+    "node-sass": "^4.9.4",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-markdown": "^4.0.3",
