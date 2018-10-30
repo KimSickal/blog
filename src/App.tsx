@@ -1,18 +1,31 @@
 import * as React from 'react';
 import './App.css';
-import { data } from './data/data'
 import { ArtworkComponent } from './v1/components/ArtworkComponent';
+import { ImagePost } from './v1/models/Posts';
 
-class App extends React.Component {
+interface ComponentStates {
+  data: ImagePost[];
+}
+
+class App extends React.Component<{}, ComponentStates> {
+  constructor(props: {}) {
+    super(props);
+    this.state = { data: [] };
+  }
+  componentDidMount(){
+    this.setState({
+      data: require('./data/data.json'),
+    })
+  }
   public render() {
     return (
-      <div className="App">
-        <p className="App-intro">
+      <div>
+        <p>
           Comming Soon
         </p>
         {
-          data.map((value, i) => {
-            return <ArtworkComponent image ={value.image} markdownAddress={value.text} key = {i} />
+          this.state.data.map((value, i) => {
+            return <ArtworkComponent image={value.images} markdownAddress={value.text} key={i} />
           })
         }
       </div>
