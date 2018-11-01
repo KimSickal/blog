@@ -34,47 +34,49 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
   public render() {
     const {
       images,
-      maxWidth,
+      // maxWidth,
       title,
     } = this.props;
     return (
       <div
         className='Artwork'
-        style={{
-          width: maxWidth
-        }}
+      // style={{
+      //   width: maxWidth
+      // }}
       >
         <div
           className='Title'
-          style={{
-            width: maxWidth
-          }}
           onClick={() => {
             this.setState({ isOpen: !this.state.isOpen });
-            if(!this.state.isOpen){
+            if (!this.state.isOpen) {
               console.log(this.state.isOpen);
               this.loadMarkdown();
             }
           }}
+        // style={{
+        //   width: maxWidth
+        // }}
         >
           <h1>
             {title}
           </h1>
+          <h1>
+            {this.state.isOpen ? '▲' : '▼'}
+          </h1>
         </div>
         {this.state.isOpen ?
-          <div
-            className='Content'
-          >
-            {
-              images.map((image, i) => {
-                return <img src={require(`../../data/image/${image}`)} key={i} />
-              })
-            }
+          <div>
+            <div
+              className='Content'
+            >
+              {
+                images.map((image, i) => {
+                  return <img src={require(`../../data/image/${image}`)} key={i} />
+                })
+              }
+            </div>
             <div
               className='Markdown'
-              style={{
-                width: maxWidth
-              }}
             >
               <ReactMarkdown source={this.state.text} />
             </div>

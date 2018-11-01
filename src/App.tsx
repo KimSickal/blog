@@ -19,16 +19,16 @@ class App extends React.Component<{}, ComponentStates> {
   }
   public render() {
     return (
-      <div className="App">
+      <div className="App" style={{ width: 1000 }}>
         <p>
-          Comming Soon
+          Working
         </p>
         {
           this.state.data.map((value, i) => {
             return <ArtworkComponent
               images={value.images}
               markdownAddress={value.text}
-              maxWidth={600}
+              maxWidth={800}
               title={value.title}
               key={i}
             />
