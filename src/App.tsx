@@ -25,7 +25,13 @@ class App extends React.Component<{}, ComponentStates> {
         </p>
         {
           this.state.data.map((value, i) => {
-            return <ArtworkComponent images={value.images} markdownAddress={value.text} key={i} />
+            return <ArtworkComponent
+              images={value.images}
+              markdownAddress={value.text}
+              maxWidth={600}
+              title={value.title}
+              key={i}
+            />
           })
         }
       </div>
