@@ -5,7 +5,6 @@ import '../styles/ArtworkComponent.css';
 interface ComponentProps {
   images: string[];
   markdownAddress: string;
-  maxWidth: number;
   title: string;
 }
 
@@ -34,28 +33,20 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
   public render() {
     const {
       images,
-      // maxWidth,
       title,
     } = this.props;
     return (
       <div
         className='Artwork'
-      // style={{
-      //   width: maxWidth
-      // }}
       >
         <div
           className='Title'
           onClick={() => {
             this.setState({ isOpen: !this.state.isOpen });
             if (!this.state.isOpen) {
-              console.log(this.state.isOpen);
               this.loadMarkdown();
             }
           }}
-        // style={{
-        //   width: maxWidth
-        // }}
         >
           <h1>
             {title}

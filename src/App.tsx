@@ -5,12 +5,16 @@ import { ImagePost } from './v1/models/Posts';
 
 interface ComponentStates {
   data: ImagePost[];
+  screenWidth: number;
 }
 
 class App extends React.Component<{}, ComponentStates> {
   constructor(props: {}) {
     super(props);
-    this.state = { data: [] };
+    this.state = {
+      data: [],
+      screenWidth: Math.max(Math.min(document.body.clientWidth, 800), 400),
+    };
   }
   componentDidMount() {
     this.setState({
@@ -18,8 +22,10 @@ class App extends React.Component<{}, ComponentStates> {
     })
   }
   public render() {
+    let maxWidth = Math.max(Math.min(document.body.clientWidth, 800), 400);
+    console.log(maxWidth, document.body.clientWidth)
     return (
-      <div className="App" style={{ width: 1000 }}>
+      <div className="App" style={{ width: maxWidth }}>
         <p>
           Working
         </p>
@@ -28,7 +34,6 @@ class App extends React.Component<{}, ComponentStates> {
             return <ArtworkComponent
               images={value.images}
               markdownAddress={value.text}
-              maxWidth={800}
               title={value.title}
               key={i}
             />
