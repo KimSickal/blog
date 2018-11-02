@@ -1,0 +1,9 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .Container > h1 {
+    text-align: center;
+  }
