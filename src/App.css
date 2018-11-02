@@ -3,3 +3,29 @@
   flex-direction: column;
   align-items: stretch;
 }
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.header > div{
+  display: flex;
+  flex: 1;
+}
+
+.headerTitle{
+  justify-content: flex-start;
+}
+
+.headerSearchBar{
+  justify-content: center;
+}
+
+.headerVersionControl{
+  justify-content: flex-end;
+}

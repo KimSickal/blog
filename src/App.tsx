@@ -16,7 +16,7 @@ class App extends React.Component<{}, ComponentStates> {
     this.state = {
       data: [],
       screenWidth: Math.max(Math.min(document.body.clientWidth, 800), 400),
-      selectedVersion: 'v1',
+      selectedVersion: 'v2',
     };
   }
   handleSelect(event: React.FormEvent<HTMLSelectElement>) {
@@ -33,10 +33,16 @@ class App extends React.Component<{}, ComponentStates> {
     let maxWidth = Math.max(Math.min(document.body.clientWidth, 800), 400);
     return (
       <div className="App" style={{ width: maxWidth }}>
-        <select className="versionList" onChange={event => this.handleSelect(event)} value={this.state.selectedVersion}>
-          <option value='v1'>v1</option>
-          <option value='v2'>v2</option>
-        </select>
+        <div className="header">
+          <div className="headerTitle"><p>Name of this page</p></div>
+          <div className="headerSearchBar"><p>Search bar</p></div>
+          <div className="headerVersionControl">
+            <select className="versionList" onChange={event => this.handleSelect(event)} value={this.state.selectedVersion}>
+              <option value='v1'>v1</option>
+              <option value='v2'>v2</option>
+            </select>
+          </div>
+        </div>
         {
           (() => {
             switch (this.state.selectedVersion) {

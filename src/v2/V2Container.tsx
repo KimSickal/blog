@@ -15,8 +15,14 @@ export class V2Container extends React.Component<ComponentProps> {
     return (
       <div className="Container">
         <h1>
-          Blog
+          Banner
         </h1>
+        <div className="menu">
+          <p>menu1</p>
+          <p>menu2</p>
+          <p>menu3</p>
+          <p>menu4</p>
+        </div>
         {
           this.props.data.map((value, i) => {
             return <ArtworkComponent
