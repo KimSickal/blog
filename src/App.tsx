@@ -24,7 +24,6 @@ class App extends React.Component<{}, ComponentStates> {
   }
   public render() {
     let maxWidth = Math.max(Math.min(document.body.clientWidth, 800), 400);
-    console.log(maxWidth, document.body.clientWidth)
     return (
       <div className="App" style={{ width: maxWidth }}>
         <p>

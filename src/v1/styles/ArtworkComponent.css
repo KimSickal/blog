@@ -6,14 +6,12 @@
     padding-left: 20px;
     padding-right: 20px;
 }
-.Artwork > img {
-    display: block;
-    margin-bottom: 10px;
-}
 .Title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .Title > h1 {
     display: flex;
@@ -40,4 +38,9 @@
     border-top-color: #868e96;
     padding-bottom: 10px;
     padding-top: 10px;
+}
+.Content > img {
+    display: flex;
+    margin-bottom: 10px;
+    max-width: 100%;
 }
