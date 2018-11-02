@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
-import { ArtworkComponent } from './v1/components/ArtworkComponent';
 import { ImagePost } from './v1/models/Posts';
+import { V1Container } from './v1/V1Container';
 
 interface ComponentStates {
   data: ImagePost[];
@@ -26,19 +26,7 @@ class App extends React.Component<{}, ComponentStates> {
     let maxWidth = Math.max(Math.min(document.body.clientWidth, 800), 400);
     return (
       <div className="App" style={{ width: maxWidth }}>
-        <p>
-          Working
-        </p>
-        {
-          this.state.data.map((value, i) => {
-            return <ArtworkComponent
-              images={value.images}
-              markdownAddress={value.text}
-              title={value.title}
-              key={i}
-            />
-          })
-        }
+        <V1Container data={this.state.data} />
       </div>
     );
   }
