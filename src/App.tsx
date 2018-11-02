@@ -20,6 +20,7 @@ class App extends React.Component<{}, ComponentStates> {
     this.setState({
       data: require('./data/data.json'),
     })
+    window.addEventListener('resize', () => { this.setState({ screenWidth: document.body.clientWidth }) })
   }
   public render() {
     let maxWidth = Math.max(Math.min(document.body.clientWidth, 800), 400);
