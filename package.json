@@ -2,7 +2,7 @@
   "name": "blog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kimsickal.github.io/blog/",
+  "homepage": "https://kimsickal.github.io",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "node-sass": "^4.9.4",

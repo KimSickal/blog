@@ -2,7 +2,7 @@ Personal blog project of @KimSickal
 
 ## Tech Stack
 - React (with TypeScript)
-- Redux
+- Redux <- Should I use this?
 - Github Pages
 
 ## Goal
