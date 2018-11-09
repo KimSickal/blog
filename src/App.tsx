@@ -3,6 +3,7 @@ import './App.css';
 import { ImagePost } from './models/Posts';
 import { V1Container } from './v1/V1Container';
 import { V2Container } from './v2/V2Container';
+import { screenSize } from './constants/screen';
 
 interface ComponentStates {
   data: ImagePost[];
@@ -15,18 +16,24 @@ class App extends React.Component<{}, ComponentStates> {
     super(props);
     this.state = {
       data: [],
-      screenWidth: Math.max(Math.min(document.body.clientWidth, 800), 400),
+      screenWidth: this.calculateScreenWidth(),
       selectedVersion: 'v2',
     };
   }
+
   handleSelect(event: React.FormEvent<HTMLSelectElement>) {
     this.setState({ selectedVersion: event.currentTarget.value })
   }
+
+  calculateScreenWidth() {
+    return Math.max(Math.min(document.body.clientWidth, screenSize.maxWidth), screenSize.minWidth);
+  }
+
   componentDidMount() {
     this.setState({
       data: require('./data/data.json'),
     })
-    window.addEventListener('resize', () => { this.setState({ screenWidth: Math.max(Math.min(document.body.clientWidth, 800), 400) }) })
+    window.addEventListener('resize', () => { this.setState({ screenWidth: this.calculateScreenWidth() }) })
   }
 
   public render() {
