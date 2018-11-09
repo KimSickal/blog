@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './V1Container.css';
 import { ArtworkComponent } from './components/ArtworkComponent';
-import { ImagePost } from './models/Posts';
+import { ImagePost } from '../models/Posts';
 
 interface ComponentProps {
   data: ImagePost[];

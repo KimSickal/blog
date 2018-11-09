@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.css';
-import { ImagePost } from './v1/models/Posts';
+import { ImagePost } from './models/Posts';
 import { V1Container } from './v1/V1Container';
 import { V2Container } from './v2/V2Container';
 
@@ -26,14 +26,13 @@ class App extends React.Component<{}, ComponentStates> {
     this.setState({
       data: require('./data/data.json'),
     })
-    window.addEventListener('resize', () => { this.setState({ screenWidth: document.body.clientWidth }) })
+    window.addEventListener('resize', () => { this.setState({ screenWidth: Math.max(Math.min(document.body.clientWidth, 800), 400) }) })
   }
 
   public render() {
-    let maxWidth = Math.max(Math.min(document.body.clientWidth, 800), 400);
     return (
-      <div className="App" style={{ width: maxWidth }}>
-        <div className="header">
+      <div className="App">
+        <div className="header" style={{ width: this.state.screenWidth}}>
           <div className="headerTitle"><p>Name of this page</p></div>
           <div className="headerSearchBar"><p>Search bar</p></div>
           <div className="headerVersionControl">
@@ -47,9 +46,9 @@ class App extends React.Component<{}, ComponentStates> {
           (() => {
             switch (this.state.selectedVersion) {
               case 'v1':
-                return <V1Container data={this.state.data} />;
+                return <V1Container {...this.state} />;
               case 'v2':
-                return <V2Container data={this.state.data} />;
+                return <V2Container {...this.state} />;
               default:
                 return null;
             }

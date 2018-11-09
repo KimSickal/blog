@@ -48,12 +48,12 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
             }
           }}
         >
-          <h1>
+          <h2>
             {title}
-          </h1>
-          <h1>
+          </h2>
+          <h2>
             {this.state.isOpen ? '▲' : '▼'}
-          </h1>
+          </h2>
         </div>
         {this.state.isOpen ?
           <div>

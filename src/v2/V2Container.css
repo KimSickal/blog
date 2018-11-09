@@ -1,11 +1,15 @@
 .Container {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
   
   .Container > h1 {
     text-align: center;
+  }
+  .Container.contents {
+      flex-direction: column;
+      justify-content: center;
   }
 
   .menu {
