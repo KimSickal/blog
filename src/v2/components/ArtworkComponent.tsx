@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactMarkdown from 'react-markdown';
-import '../styles/ArtworkComponent.css';
+import { styles } from '../styles/ArtworkComponentStyle';
 
 interface ComponentProps {
   images: string[];
@@ -36,11 +36,9 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
       title,
     } = this.props;
     return (
-      <div
-        className='Artwork'
-      >
+      <div style={styles.artwork}>
         <div
-          className='Title'
+          style={styles.title}
           onClick={() => {
             this.setState({ isOpen: !this.state.isOpen });
             if (!this.state.isOpen) {
@@ -48,27 +46,29 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
             }
           }}
         >
-          <h2>
+          <h2 style={styles.title_h2}>
             {title}
           </h2>
-          <h2>
+          <h2 style={styles.title_h2}>
             {this.state.isOpen ? '▲' : '▼'}
           </h2>
         </div>
         {this.state.isOpen ?
           <div>
             <div
-              className='Content'
+              style={styles.content}
             >
               {
                 images.map((image, i) => {
-                  return <img src={require(`../../data/image/${image}`)} key={i} />
+                  return <img
+                    style={styles.content_img}
+                    src={require(`../../data/image/${image}`)}
+                    key={i}
+                  />
                 })
               }
             </div>
-            <div
-              className='Markdown'
-            >
+            <div style={styles.markdown}>
               <ReactMarkdown source={this.state.text} />
             </div>
           </div>

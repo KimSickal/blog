@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './V2Container.css';
+import { styles } from './V2ContainerStyle';
 import { ArtworkComponent } from './components/ArtworkComponent';
 import { ImagePost } from '../models/Posts';
 import { BannerComponent } from './components/BannerComponent';
@@ -15,19 +15,16 @@ export class V2Container extends React.Component<ComponentProps> {
   }
   public render() {
     return (
-      <div
-        className="Container"
-      >
+      <div style={styles.container}>
         <BannerComponent />
         <div
-          className="contents"
-          style={{ width: this.props.screenWidth }}
+          style={{ ...styles.container_contents, width: this.props.screenWidth }}
         >
-          <div className="menu">
-            <p>menu1</p>
-            <p>menu2</p>
-            <p>menu3</p>
-            <p>menu4</p>
+          <div style={styles.menu}>
+            <p style={styles.menu_p}>menu1</p>
+            <p style={styles.menu_p}>menu2</p>
+            <p style={styles.menu_p}>menu3</p>
+            <p style={styles.menu_p}>menu4</p>
           </div>
           {
             this.props.data.map((value, i) => {
@@ -44,3 +41,4 @@ export class V2Container extends React.Component<ComponentProps> {
     );
   }
 }
+
