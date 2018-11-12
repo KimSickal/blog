@@ -16,7 +16,6 @@ export const styles = {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingTop: '20px',
     } as Style,
 
     title_h2: {
