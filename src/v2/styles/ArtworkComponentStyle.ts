@@ -17,10 +17,6 @@ export const styles = {
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingTop: '20px',
-        paddingBottom: '20px',
-        borderBottomStyle: 'solid',
-        borderBottomWidth: '2px',
-        borderBottomColor:'#ced4da',
     } as Style,
 
     title_h2: {
@@ -54,5 +50,9 @@ export const styles = {
         marginBottom: '10px',
         maxWidth: '100%',
     } as Style,
+
+    summary: {
+        color: '#ced4da',
+    }as Style,
 
 }

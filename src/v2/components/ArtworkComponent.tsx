@@ -6,6 +6,7 @@ interface ComponentProps {
   images: string[];
   markdownAddress: string;
   title: string;
+  summary: string;
 }
 
 interface ComponentState {
@@ -34,6 +35,7 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
     const {
       images,
       title,
+      summary,
     } = this.props;
     return (
       <div style={styles.artwork}>
@@ -55,9 +57,7 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
         </div>
         {this.state.isOpen ?
           <div>
-            <div
-              style={styles.content}
-            >
+            <div style={styles.content}>
               {
                 images.map((image, i) => {
                   return <img
@@ -73,7 +73,9 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
             </div>
           </div>
           :
-          null
+          <div style={styles.summary}>
+            {summary === '' ? 'There is no detailed description' : summary}
+          </div>
         }
       </div>
     );

@@ -4,4 +4,5 @@ export interface ImagePost{
     title: string;
     text: string;
     type: string;
+    summary: string;
 }

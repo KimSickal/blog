@@ -29,9 +29,8 @@ export class V2Container extends React.Component<ComponentProps> {
           {
             this.props.data.map((value, i) => {
               return <ArtworkComponent
-                images={value.images}
+                {...value}
                 markdownAddress={value.text}
-                title={value.title}
                 key={i}
               />
             })

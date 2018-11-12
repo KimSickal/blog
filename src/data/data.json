@@ -8,6 +8,7 @@
             "test.png",
             "test.png"
         ],
+        "summary": "",
         "title": "Poster1",
         "text": "readme.md",
         "type": "artwork"
@@ -17,6 +18,7 @@
         "images": [
             "test.png"
         ],
+        "summary": "",
         "title": "Poster2",
         "text": "readme.md",
         "type": "artwork"
