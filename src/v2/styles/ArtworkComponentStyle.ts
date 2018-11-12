@@ -7,11 +7,14 @@ export const styles = {
         backgroundColor: 'white',
         margin: '10px',
         marginTop: '0px',
+        marginBottom: '0px',
         paddingTop: '10px',
         paddingBottom: '10px',
-        borderRadius: '5px',
         paddingLeft: '100px',
         paddingRight: '100px',
+        borderBottomStyle: 'solid',
+        borderBottomWidth: '2px',
+        borderBottomColor:'#868e96',
     } as Style,
 
     title: {
