@@ -1,15 +1,17 @@
 import * as React from 'react';
 import * as ReactMarkdown from 'react-markdown';
 import '../styles/ArtworkComponent.css';
+import { getFileLocation } from 'src/helper/Parser';
 
 interface ComponentProps {
   images: string[];
-  markdownAddress: string;
   title: string;
+  date: string;
+  text: string;
 }
 
 interface ComponentState {
-  text: string;
+  markdownText: string;
   isOpen: boolean;
 }
 
@@ -17,15 +19,21 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
   constructor(props: ComponentProps) {
     super(props)
     this.state = {
-      text: "",
+      markdownText: "",
       isOpen: false,
     };
   }
 
   private loadMarkdown() {
-    fetch(require('../../data/text/README.md')).then((response) => {
+    const {
+      date,
+      title,
+      text,
+    } = this.props;
+    
+    fetch(require(`../../data/posts/${getFileLocation(date, title, text)}`)).then((response) => {
       return response.text().then((markdownText) => {
-        this.setState({ text: markdownText });
+        this.setState({ markdownText: markdownText });
       })
     })
   }
@@ -33,7 +41,9 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
   public render() {
     const {
       images,
+      date,
       title,
+      text,
     } = this.props;
     return (
       <div
@@ -62,14 +72,14 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
             >
               {
                 images.map((image, i) => {
-                  return <img src={require(`../../data/image/${image}`)} key={i} />
+                  return <img src={require(`../../data/posts/${getFileLocation(date, title, text)}`)} key={i} />
                 })
               }
             </div>
             <div
               className='Markdown'
             >
-              <ReactMarkdown source={this.state.text} />
+              <ReactMarkdown source={this.state.markdownText} />
             </div>
           </div>
           :

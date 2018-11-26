@@ -1,16 +1,17 @@
 import * as React from 'react';
 import * as ReactMarkdown from 'react-markdown';
 import { styles } from '../styles/ArtworkComponentStyle';
+import { getFileLocation } from 'src/helper/Parser';
 
 interface ComponentProps {
   images: string[];
-  markdownAddress: string;
   title: string;
   summary: string;
+  date: string;
 }
 
 interface ComponentState {
-  text: string;
+  markdownText: string;
   isOpen: boolean;
 }
 
@@ -18,15 +19,22 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
   constructor(props: ComponentProps) {
     super(props)
     this.state = {
-      text: "",
+      markdownText: "",
       isOpen: false,
     };
   }
 
   private loadMarkdown() {
-    fetch(require('../../data/text/README.md')).then((response) => {
+    const {
+      title,
+      date,
+    } = this.props;
+
+    const fileLocation = getFileLocation(date, title, `${title}.md`);
+
+    fetch(require(`../../data/posts/${fileLocation}`)).then((response) => {
       return response.text().then((markdownText) => {
-        this.setState({ text: markdownText });
+        this.setState({ markdownText: markdownText });
       })
     })
   }
@@ -36,7 +44,9 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
       images,
       title,
       summary,
+      date,
     } = this.props;
+
     return (
       <div style={styles.artwork}>
         <div
@@ -59,17 +69,18 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
           <div>
             <div style={styles.content}>
               {
-                images.map((image, i) => {
+                images.map((imageName, i) => {
+                  const fileLocation = getFileLocation(date, title, imageName);
                   return <img
                     style={styles.content_img}
-                    src={require(`../../data/image/${image}`)}
+                    src={require(`../../data/posts/${fileLocation}`)}
                     key={i}
                   />
                 })
               }
             </div>
             <div style={styles.markdown}>
-              <ReactMarkdown source={this.state.text} />
+              <ReactMarkdown source={this.state.markdownText} />
             </div>
           </div>
           :

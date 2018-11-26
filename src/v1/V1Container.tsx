@@ -21,7 +21,6 @@ export class V1Container extends React.Component<ComponentProps> {
           this.props.data.map((value, i) => {
             return <ArtworkComponent
               {...value}
-              markdownAddress={value.text}
               key={i}
             />
           })
