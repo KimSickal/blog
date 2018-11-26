@@ -4,6 +4,6 @@ body {
   display: flex;
   justify-content: center;
   font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 100;
+  font-weight: normal;
   background-color: #f1f3f5;
 }
