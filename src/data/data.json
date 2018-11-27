@@ -1,32 +1,32 @@
 [
     {
-        "date": "2018-10-29",
+        "date": "2018-03-05",
         "images": [
             "2018s_starflower_1.png"
         ],
         "summary": "2018 봄 별바라기 신입생 선발 포스터",
-        "title": "Poster1",
+        "title": "SF_poster_1",
         "text": "text.md",
         "type": "artwork"
     },
     {
-        "date": "2018-10-29",
+        "date": "2018-03-05",
         "images": [
             "2018s_starflower_2.png"
         ],
         "summary": "2018 봄 별바라기 신입생 선발 포스터",
-        "title": "Poster2",
+        "title": "SF_poster_2",
         "text": "text.md",
         "type": "artwork"
     },
     {
-        "date": "2018-10-29",
+        "date": "2018-03-05",
         "images": [
             "2018s_starflower_3_k.png",
             "2018s_starflower_3_e.png"
         ],
         "summary": "2018 봄 별바라기 신입생 선발 포스터",
-        "title": "Poster3",
+        "title": "SF_poster_3",
         "text": "text.md",
         "type": "artwork"
     }
