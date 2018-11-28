@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { styles } from './V2ContainerStyle';
 import { ArtworkComponent } from './components/ArtworkComponent';
-import { ImagePost } from '../models/Posts';
+import { Post } from '../models/Posts';
 import { BannerComponent } from './components/BannerComponent';
 
 interface ComponentProps {
-  data: ImagePost[];
+  data: Post[];
   screenWidth: number;
 }
 
@@ -27,9 +27,9 @@ export class V2Container extends React.Component<ComponentProps> {
             <p style={styles.menu_p}>About</p>
           </div>
           {
-            this.props.data.map((value, i) => {
+            this.props.data.map((post, i) => {
               return <ArtworkComponent
-                {...value}
+                post={post}
                 key={i}
               />
             })

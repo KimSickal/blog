@@ -1,91 +1,82 @@
 import * as React from 'react';
 import * as ReactMarkdown from 'react-markdown';
 import '../styles/ArtworkComponent.css';
-import { getFileLocation } from 'src/helper/Parser';
+import {
+	Post,
+	loadImagesToComponent,
+	getTitle,
+	loadMarkdown,
+} from 'src/models/Posts';
 
 interface ComponentProps {
-  images: string[];
-  title: string;
-  date: string;
-  text: string;
+	post: Post;
 }
 
 interface ComponentState {
-  markdownText: string;
-  isOpen: boolean;
+	markdownText: string;
+	isOpen: boolean;
 }
 
 export class ArtworkComponent extends React.Component<ComponentProps, ComponentState> {
-  constructor(props: ComponentProps) {
-    super(props)
-    this.state = {
-      markdownText: "",
-      isOpen: false,
-    };
-  }
+	constructor(props: ComponentProps) {
+		super(props)
+		this.state = {
+			markdownText: "",
+			isOpen: false,
+		};
+		this.handleClick = this.handleClick.bind(this);
+	}
 
-  private loadMarkdown() {
-    const {
-      date,
-      title,
-      text,
-    } = this.props;
-    
-    fetch(require(`../../data/posts/${getFileLocation(date, title, text)}`)).then((response) => {
-      return response.text().then((markdownText) => {
-        this.setState({ markdownText: markdownText });
-      })
-    })
-  }
+	handleClick() {
+		const {
+			post,
+		} = this.props;
 
-  public render() {
-    const {
-      images,
-      date,
-      title,
-      text,
-    } = this.props;
-    return (
-      <div
-        className='Artwork'
-      >
-        <div
-          className='Title'
-          onClick={() => {
-            this.setState({ isOpen: !this.state.isOpen });
-            if (!this.state.isOpen) {
-              this.loadMarkdown();
-            }
-          }}
-        >
-          <h1>
-            {title}
-          </h1>
-          <h1>
-            {this.state.isOpen ? '▲' : '▼'}
-          </h1>
-        </div>
-        {this.state.isOpen ?
-          <div>
-            <div
-              className='Content'
-            >
-              {
-                images.map((image, i) => {
-                  return <img src={require(`../../data/posts/${getFileLocation(date, title, text)}`)} key={i} />
-                })
-              }
-            </div>
-            <div
-              className='Markdown'
-            >
-              <ReactMarkdown source={this.state.markdownText} />
-            </div>
-          </div>
-          :
-          null
-        }
-      </div>
-    );
-  }
+		this.setState({ isOpen: !this.state.isOpen });
+		if (!this.state.isOpen) {
+			loadMarkdown(post).then((response) => {
+				return response.text().then((text) => {
+					this.setState({
+						'markdownText': text,
+					});
+				})
+			})
+		}
+	}
+
+	public render() {
+		const {
+			post,
+		} = this.props;
+
+		return (
+			<div className='Artwork'>
+				<div
+					className='Title'
+					onClick={this.handleClick}
+				>
+					<h2>
+						{getTitle(post)}
+					</h2>
+					<h2>
+						{this.state.isOpen ? '▲' : '▼'}
+					</h2>
+				</div>
+				{this.state.isOpen ?
+					<div>
+						<div className='Content'>
+							{
+								loadImagesToComponent(post)
+							}
+						</div>
+						<div className='Markdown'>
+							<ReactMarkdown source={this.state.markdownText} />
+						</div>
+					</div>
+					:
+					null
+				}
+			</div>
+		);
+	}
 }

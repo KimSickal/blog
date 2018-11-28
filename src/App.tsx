@@ -1,12 +1,12 @@
 import * as React from 'react';
 import './App.css';
-import { ImagePost } from './models/Posts';
+import { Post, loadData } from './models/Posts';
 import { V1Container } from './v1/V1Container';
 import { V2Container } from './v2/V2Container';
 import { screenSize } from './constants/screen';
 
 interface ComponentStates {
-  data: ImagePost[];
+  data: Post[];
   screenWidth: number;
   selectedVersion: string;
 }
@@ -31,7 +31,7 @@ class App extends React.Component<{}, ComponentStates> {
 
   componentDidMount() {
     this.setState({
-      data: require('./data/data.json'),
+      data: loadData(),
     })
     window.addEventListener('resize', () => { this.setState({ screenWidth: this.calculateScreenWidth() }) })
   }
