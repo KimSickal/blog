@@ -1,8 +1,91 @@
 [
     {
+        "date": "2016-03-01",
+        "name": "SF_logo",
+        "title": "별바라기 한글 로고",
+        "type": "ARTWORK",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.png",
+            "4.png"
+        ]
+    },
+    {
+        "date": "2016-09-01",
+        "name": "mighty_logo",
+        "title": "마이티 갤러리 로고, 단체복 디자인",
+        "type": "ARTWORK",
+        "images": [
+            "1.png",
+            "2.png",
+            "3.png",
+            "4.png",
+            "5.png"
+        ]
+    },
+    {
+        "date": "2016-09-12",
+        "name": "SF_poster",
+        "title": "2016 가을 별바라기 신규 부원 모집 포스터",
+        "type": "ARTWORK",
+        "images": [
+            "별바철도999.png",
+            "연애혁명2안.png",
+            "치인트.png"
+        ]
+    },
+    {
+        "date": "2016-11-30",
+        "name": "haje_poster",
+        "title": "2016 가을 하제 게임 전시회 포스터",
+        "type": "ARTWORK",
+        "images": [
+            "Condensed3.png"
+        ]
+    },
+    {
+        "date": "2017-02-28",
+        "name": "haje_poster",
+        "title": "2017 봄 하제 신규 부원 모집 포스터",
+        "type": "ARTWORK",
+        "images": [
+            "가로포스터_문구있음.png",
+            "가로포스터_오렌지.png"
+        ]
+    },
+    {
+        "date": "2017-03-02",
+        "name": "SF_poster_1",
+        "title": "2017 봄 별바라기 신입생 선발 포스터 <라라랜드>",
+        "type": "ARTWORK",
+        "images": [
+            "라라랜드.png"
+        ]
+    },
+    {
+        "date": "2017-03-02",
+        "name": "SF_poster_2",
+        "title": "2017 봄 별바라기 신입생 선발 포스터 <모아나>",
+        "type": "ARTWORK",
+        "images": [
+            "모아나.png"
+        ]
+    },
+    {
+        "date": "2017-08-28",
+        "name": "SF_poster",
+        "title": "2017 가을 별바라기 신입생 선발 포스터",
+        "type": "ARTWORK",
+        "images": [
+            "낭만포스터.png",
+            "직접포스터.png"
+        ]
+    },
+    {
         "date": "2018-03-05",
         "name": "SF_poster_1",
-        "title": "2018 봄 별바라기 신입생 선발 포스터 \"블랙 팬서\"",
+        "title": "2018 봄 별바라기 신규 부원 모집 포스터 <블랙 팬서>",
         "type": "ARTWORK",
         "images": [
             "2018s_starflower_1.png"
@@ -11,7 +94,7 @@
     {
         "date": "2018-03-05",
         "name": "SF_poster_2",
-        "title": "2018 봄 별바라기 신입생 선발 포스터",
+        "title": "2018 봄 별바라기 신규 부원 모집 포스터 <스타워즈>",
         "type": "ARTWORK",
         "images": [
             "2018s_starflower_2.png"
@@ -20,11 +103,20 @@
     {
         "date": "2018-03-05",
         "name": "SF_poster_3",
-        "title": "2018 봄 별바라기 신입생 선발 포스터",
+        "title": "2018 봄 별바라기 신규 부원 모집 포스터 <컬링>",
         "type": "ARTWORK",
         "images": [
             "2018s_starflower_3_k.png",
             "2018s_starflower_3_e.png"
+        ]
+    },
+    {
+        "date": "2018-11-21",
+        "name": "HMC",
+        "title": "2018 11월 학생소수자인권위원회 인권세미나 포스터",
+        "type": "ARTWORK",
+        "images": [
+            "인권행사.png"
         ]
     }
 ]
