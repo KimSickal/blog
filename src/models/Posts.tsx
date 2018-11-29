@@ -22,7 +22,7 @@ export enum PostKeys {
 }
 
 export function requireData(): Post[] {
-    return require('../data/data.json');
+    return require('../data/data.json').sort((a: Post, b: Post) => a.date === b.date ? 0 : (a.date > b. date ? -1 : 1));
 }
 
 function requireFileOfPost(post: Post, fileName: string, extension: string = "") {

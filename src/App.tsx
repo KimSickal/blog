@@ -19,6 +19,8 @@ class App extends React.Component<{}, ComponentStates> {
       screenWidth: this.calculateScreenWidth(),
       selectedVersion: 'v2',
     };
+    this.calculateScreenWidth = this.calculateScreenWidth.bind(this);
+    this.onResize = this.onResize.bind(this);
   }
 
   handleSelect(event: React.FormEvent<HTMLSelectElement>) {
@@ -29,11 +31,16 @@ class App extends React.Component<{}, ComponentStates> {
     return Math.max(Math.min(document.body.clientWidth, screenSize.maxWidth), screenSize.minWidth);
   }
 
+  onResize() {
+    this.setState({ screenWidth: this.calculateScreenWidth()});
+  }
+
   componentDidMount() {
     this.setState({
       data: requireData(),
     })
-    window.addEventListener('resize', () => { this.setState({ screenWidth: this.calculateScreenWidth() }) })
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
   }
 
   public render() {
