@@ -56,16 +56,25 @@ export function loadImagesToComponent(post: Post, style: Style | null = null): R
     )
 }
 
-export function getTitle(post: Post): string {
-    if(post.title === null || post.title === undefined){
-        return defaultText.title;
+function returnAfterNullcheck(obj: any, defaultValue: any): any {
+    if(obj === null || obj === undefined){
+        return defaultValue;
     }
-    return post.title;
+    return obj;
+}
+
+export function getTitle(post: Post): string {
+    return returnAfterNullcheck(post.title, defaultText.title);
 }
 
 export function getImages(post: Post): string[] {
-    if(post.images === null || post.images === undefined){
-        return [];
-    }
-    return post.images;
+    return returnAfterNullcheck(post.images, []);
+}
+
+export function getPostType(post: Post): string {
+    return returnAfterNullcheck(post.type, defaultText.type);
+}
+
+export function getDate(post: Post): string {
+    return returnAfterNullcheck(post.date, Date.now.toString());
 }

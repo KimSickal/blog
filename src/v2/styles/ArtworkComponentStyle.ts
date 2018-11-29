@@ -8,6 +8,7 @@ export const styles = {
         margin: '10px',
         marginTop: '0px',
         marginBottom: '0px',
+        padding: '20px',
         paddingLeft: '100px',
         paddingRight: '100px',
     } as Style,
@@ -18,7 +19,7 @@ export const styles = {
         justifyContent: 'space-between',
     } as Style,
 
-    title_h2: {
+    title_p: {
         display: 'flex',
         margin: '0px',
     } as Style,

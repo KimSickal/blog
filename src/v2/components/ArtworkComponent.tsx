@@ -8,6 +8,8 @@ import {
 	loadImagesToComponent,
 	getTitle,
 	loadMarkdown,
+	getPostType,
+	getDate,
 } from 'src/models/Posts';
 
 interface ComponentProps {
@@ -52,17 +54,25 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 		} = this.props;
 
 		return (
-			<div style={styles.artwork}>
-				<div
-					style={styles.title}
-					onClick={this.handleClick}
-				>
-					<h2 style={styles.title_h2}>
+			<div
+				style={styles.artwork}
+				onClick={this.handleClick}
+			>
+				<div style={styles.title}>
+					<p style={styles.title_p}>
 						{getTitle(post)}
-					</h2>
-					<h2 style={styles.title_h2}>
+					</p>
+					<p style={styles.title_p}>
 						{this.state.isOpen ? '▲' : '▼'}
-					</h2>
+					</p>
+				</div>
+				<div style={styles.title}>
+					<p>
+						{`분류: ${getPostType(post)}`}
+					</p>
+					<p>
+						{getDate(post)}
+					</p>
 				</div>
 				{this.state.isOpen ?
 					<div>
