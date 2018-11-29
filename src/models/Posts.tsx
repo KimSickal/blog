@@ -1,7 +1,12 @@
 import * as React from 'react';
+
 import {
     Style
 } from './Style';
+
+import {
+    defaultText
+} from 'src/constants/text';
 
 export interface Post {
     date: string;
@@ -16,39 +21,51 @@ export enum PostKeys {
     ARTWORK = 'ARTWORK',
 }
 
-export function loadData(): Post[] {
+export function requireData(): Post[] {
     return require('../data/data.json');
 }
 
-export function getFileLocation(date: string, postName: string, fileName: string = "") : string {
-    const  folderLocation = `${date}_${postName}`;
-    return `${folderLocation}/${fileName}`;
+function requireFileOfPost(post: Post, fileName: string, extension: string = "") {
+    return require(`../data/posts/${getFileLocation(post, fileName, extension)}`);
+}
+
+function getFileLocation(post: Post, fileName: string, extension: string = ""): string {
+    return `${getFolderLocation(post)}${fileName}${extension}`;
+}
+
+
+function getFolderLocation(post: Post): string {
+    return `${post.date}_${post.name}/`;
 }
 
 export function loadMarkdown(post: Post) {
-    const fileLocation = getFileLocation(post.date, post.name, `${post.name}.md`);
-    return fetch(require(`../data/posts/${fileLocation}`))
+    return fetch(requireFileOfPost(post, post.name, '.md'));
 }
 
-export function loadImagesToComponent(post: Post, style: Style|null = null): React.ReactFragment {
+export function loadImagesToComponent(post: Post, style: Style | null = null): React.ReactFragment {
     return (
-        <React.Fragment>
-            {
-                post.images.map((imageName, i) => {
-                    const fileLocation = getFileLocation(post.date, post.name, imageName);
-                    return (
-                        <img
-                        style={style === null ? {} : style}
-                        src={require(`../data/posts/${fileLocation}`)}
-                        key={i}
-                        />
-                    );
-                  })
-            }
-        </React.Fragment>
+        getImages(post).map((imageName, i) => {
+            return (
+                <img
+                    style={style === null ? {} : style}
+                    src={requireFileOfPost(post, imageName)}
+                    key={i}
+                />
+            );
+        })
     )
 }
 
 export function getTitle(post: Post): string {
+    if(post.title === null || post.title === undefined){
+        return defaultText.title;
+    }
     return post.title;
+}
+
+export function getImages(post: Post): string[] {
+    if(post.images === null || post.images === undefined){
+        return [];
+    }
+    return post.images;
 }

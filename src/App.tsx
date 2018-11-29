@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.css';
-import { Post, loadData } from './models/Posts';
+import { Post, requireData } from './models/Posts';
 import { V1Container } from './v1/V1Container';
 import { V2Container } from './v2/V2Container';
 import { screenSize } from './constants/screen';
@@ -31,7 +31,7 @@ class App extends React.Component<{}, ComponentStates> {
 
   componentDidMount() {
     this.setState({
-      data: loadData(),
+      data: requireData(),
     })
     window.addEventListener('resize', () => { this.setState({ screenWidth: this.calculateScreenWidth() }) })
   }
