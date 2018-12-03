@@ -8,20 +8,36 @@ export const styles = {
         margin: '10px',
         marginTop: '0px',
         marginBottom: '0px',
-        padding: '20px',
-        paddingLeft: '100px',
-        paddingRight: '100px',
+        padding: '100px',
+        paddingBottom: '0px',
+        paddingTop: '0px',
     } as Style,
 
     title: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        marginTop: '40px',
     } as Style,
 
     title_p: {
-        display: 'flex',
         margin: '0px',
+        fontSize: '20px',
+        maxWidth: '100%',
+    } as Style,
+
+    summary: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: '20px',
+        paddingBottom: '30px',
+        borderBottom: '2px solid #ced4da',
+    } as Style,
+
+    summary_p: {
+        margin: '0px',
+        color: '#868e96',
     } as Style,
 
     markdown: {
@@ -44,9 +60,4 @@ export const styles = {
         paddingBottom: '10px',
         paddingTop: '10px',
     } as Style,
-    
-    summary: {
-        color: '#ced4da',
-    }as Style,
-
 }

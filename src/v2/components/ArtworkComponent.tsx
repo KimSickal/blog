@@ -68,11 +68,11 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 						{this.state.isOpen ? '▲' : '▼'}
 					</p>
 				</div>
-				<div style={styles.title}>
-					<p>
+				<div style={styles.summary}>
+					<p style={styles.summary_p}>
 						{`분류: ${getPostType(post)}`}
 					</p>
-					<p>
+					<p style={styles.summary_p}>
 						{getDate(post)}
 					</p>
 				</div>
