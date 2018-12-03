@@ -44,13 +44,7 @@ export const styles = {
         paddingBottom: '10px',
         paddingTop: '10px',
     } as Style,
-
-    content_img: {
-        display: 'flex',
-        marginBottom: '10px',
-        maxWidth: '100%',
-    } as Style,
-
+    
     summary: {
         color: '#ced4da',
     }as Style,

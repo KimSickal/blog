@@ -1,16 +1,18 @@
 import * as React from 'react';
-import * as ReactMarkdown from 'react-markdown';
+import ReactMarkdown from 'react-markdown'
 import {
 	styles
 } from '../styles/ArtworkComponentStyle';
 import {
 	Post,
-	loadImagesToComponent,
 	getTitle,
 	loadMarkdown,
 	getPostType,
 	getDate,
 } from 'src/models/Posts';
+import{
+	ArtworkImageComponent
+} from '../components/ArtworkImageComponent'
 
 interface ComponentProps {
 	post: Post;
@@ -76,11 +78,9 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 				</div>
 				{this.state.isOpen ?
 					<div>
-						<div style={styles.content}>
-							{
-								loadImagesToComponent(post, styles.content_img)
-							}
-						</div>
+						<ArtworkImageComponent
+							{...this.props}
+						/>
 						<div style={styles.markdown}>
 							<ReactMarkdown source={this.state.markdownText} />
 						</div>
