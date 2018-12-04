@@ -17,7 +17,7 @@ export const styles = {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: '40px',
+        marginTop: '30px',
     } as Style,
 
     title_p: {
@@ -31,7 +31,7 @@ export const styles = {
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: '20px',
-        paddingBottom: '30px',
+        paddingBottom: '40px',
         borderBottom: '2px solid #ced4da',
     } as Style,
 
