@@ -48,16 +48,12 @@ export const styles = {
         justifyContent: 'flex-start',
         paddingBottom: '10px',
         paddingTop: '10px',
-        borderBottomStyle: 'solid',
-        borderBottomWidth: '2px',
-        borderBottomColor:'#ced4da',
     } as Style,
 
     content: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        paddingBottom: '10px',
-        paddingTop: '10px',
+        marginTop: '40px',
     } as Style,
 }
