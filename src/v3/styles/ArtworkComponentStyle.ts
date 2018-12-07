@@ -1,6 +1,6 @@
 import { Style } from 'src/models/Style';
 
-export const styles = {
+export const styles: { [key: string]: Style } = {
     artwork: {
         display: 'flex',
         flexDirection: 'column',
