@@ -56,16 +56,27 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 		} = this.props;
 
 		return (
-			<div
-				style={styles.artwork}
-				onClick={this.handleClick}
-			>
-				<div style={styles.title}>
+			<div style={styles.artwork}>
+				<div
+					style={styles.title}
+					onClick={this.handleClick}
+				>
 					<p style={styles.title_p}>
 						{getTitle(post)}
 					</p>
 					<p style={styles.title_p}>
 						{this.state.isOpen ? '▲' : '▼'}
+					</p>
+				</div>
+				<div
+					style={styles.summary}
+					onClick={this.handleClick}
+				>
+					<p style={styles.summary_p}>
+						{`분류: ${getPostType(post)}`}
+					</p>
+					<p style={styles.summary_p}>
+						{getDate(post)}
 					</p>
 				</div>
 				{this.state.isOpen ?
@@ -80,14 +91,7 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 					:
 					null
 				}
-				<div style={styles.summary}>
-					<p style={styles.summary_p}>
-						{`분류: ${getPostType(post)}`}
-					</p>
-					<p style={styles.summary_p}>
-						{getDate(post)}
-					</p>
-				</div>
+				<div style={styles.division} />
 			</div>
 		);
 	}

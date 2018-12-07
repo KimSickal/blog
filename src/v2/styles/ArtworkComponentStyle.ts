@@ -32,7 +32,6 @@ export const styles = {
         justifyContent: 'space-between',
         marginTop: '20px',
         paddingBottom: '40px',
-        borderBottom: '2px solid #ced4da',
     } as Style,
 
     summary_p: {
@@ -56,4 +55,8 @@ export const styles = {
         alignItems: 'center',
         marginTop: '40px',
     } as Style,
+
+    division: {
+        borderBottom: '2px solid #ced4da',
+    }
 }
