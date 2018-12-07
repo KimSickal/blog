@@ -1,0 +1,3 @@
+- [학생 소수자 인권 위원회](https://www.facebook.com/kaisthumanrightscommitte/)에서 [장애인의 권리](https://www.facebook.com/kaisthumanrightscommitte/posts/747819715554993)라는 세미나를 기획하고 그에 맞는 포스터를 제작해달라는 외주가 들어와서 만들었다.
+- 아이디어 자체는 그쪽에서 [이미 정한 상태로](https://guerrillaforngo.files.wordpress.com/2015/05/mteverest.jpg) 사진과 함께 전달해 주셨기 때문에 두어 시간 만에 금방 완성했다.
+- 학교 곳곳에 붙었다는데, 만든이가 김OO(산업디자인학과 16)으로 나와서 🤔
