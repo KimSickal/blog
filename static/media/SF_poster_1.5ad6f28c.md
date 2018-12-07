@@ -1,6 +1,0 @@
-- 2016년을 강타한 최고의 로맨스영화(아님) 라라랜드를 보고 만든 것. [공식 포스터](https://www.imdb.com%2Ftitle%2Ftt3783958%2F&psig=AOvVaw3T1RMQXEoCrMDexoLppEd1&ust=1544249071050287)를 따라하고 싶었지만 작업하던 노트북의 색감이 너무 구려서 결국 저런 쨍-한 색감이 나와버렸다 어흑
-- 폰트도 [공식 한국어 포스터](https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiH_ru6ho3fAhXVZt4KHU27DyQQjRx6BAgBEAU&url=https%3A%2F%2Fko.wikipedia.org%2Fwiki%2F%25EB%259D%25BC%25EB%259D%25BC%25EB%259E%259C%25EB%2593%259C&psig=AOvVaw3L2wjT3777QBD21JaqQCLT&ust=1544249133130652)의 폰트를 따라하기 위해 AI로 직접 그린것. 그리고 보니 얇아서 안 보이길래 두께를 좀 줬는데, 지금 보니 괜히 한 느낌이다.
-- 두 등장인물의 사진은 포스터에서 그대로 따왔고, 뒤의 배경은 구글에 까리용이라고 검색해서 나온 괜찮은 이미지 하나를 적당히 잘라다 만들었다. 이후 요긴하게 잘 써먹게 된다.
-- 배경의 별은 노이즈로 그린건데, 역시 이후에도 요긴하게 잘 써먹게 된다.
-- 전체적으로 완성도가 아쉽지만 컨셉은 상당히 마음에 들었던 포스터. 17년에 만든 별바라기 포스터중에 제일 마음에 든다.
-- 라라랜드 꼭 보세요 ㅠㅜㅠㅠㅜ 저는 극장에서만 세번 봤음
