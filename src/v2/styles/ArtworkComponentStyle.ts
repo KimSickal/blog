@@ -31,7 +31,6 @@ export const styles = {
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: '20px',
-        paddingBottom: '40px',
     } as Style,
 
     summary_p: {
@@ -53,10 +52,11 @@ export const styles = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: '40px',
+        marginTop: '20px',
     } as Style,
 
     division: {
+        paddingBottom: '40px',
         borderBottom: '2px solid #ced4da',
     }
 }
