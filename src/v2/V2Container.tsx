@@ -38,7 +38,10 @@ export class V2Container extends React.Component<ComponentProps, ComponentStates
 						{
 							tabList.map((e, i) => {
 								return (
-									<div style={styles[selectedStyle('menuBar_menu', selectedTab === i)]}>
+									<div
+										style={styles[selectedStyle('menuBar_menu', selectedTab === i)]}
+										key={i}
+									>
 										<p style={styles[selectedStyle('menuBar_menu_p', selectedTab === i)]}>
 											{e}
 										</p>
