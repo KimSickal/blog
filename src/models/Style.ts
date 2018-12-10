@@ -18,3 +18,7 @@ export interface Style {
 
     textAlign?: TextAlignProperty;
 }
+
+export function selectedStyle(styleName: string, isSelected: boolean,) {
+    return styleName + (isSelected ? '_selected' : '');
+}
