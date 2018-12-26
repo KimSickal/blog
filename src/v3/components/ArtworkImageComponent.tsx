@@ -25,7 +25,9 @@ export class ArtworkImageComponent extends React.Component<ComponentProps> {
 
 		return (
 			<div>
-				{loadImagesToComponent(post, styles.content_img)}
+				{
+					loadImagesToComponent(post, styles.content_img)
+				}
 			</div>
 		);
 	}
