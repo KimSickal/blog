@@ -1,15 +1,19 @@
+import {
+	CSSProperties,
+} from 'react';
+
 export const styles = {
 	banner: {
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
-	} as CSSStyleDeclaration,
+	} as CSSProperties,
 
 	banner_h1: {
 		color: 'white',
-	} as CSSStyleDeclaration,
+	} as CSSProperties,
 
 	banner_p: {
 		color: 'white',
-	} as CSSStyleDeclaration,
+	} as CSSProperties,
 };
