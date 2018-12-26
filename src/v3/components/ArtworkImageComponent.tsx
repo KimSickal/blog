@@ -1,11 +1,13 @@
 import * as React from 'react';
-import {
-	styles,
-} from '../styles/ArtworkImageComponentStyle';
+
 import {
 	Post,
 	loadImagesToComponent,
-} from 'src/models/Posts';
+} from 'src/models';
+
+import {
+	styles,
+} from '../styles/ArtworkImageComponentStyle';
 
 interface ComponentProps {
 	post: Post;

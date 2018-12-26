@@ -3,20 +3,20 @@ import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import {
-	styles,
-} from '../styles/ArtworkComponentStyle';
-
-import {
 	Post,
 	getTitle,
 	loadMarkdown,
 	getPostType,
 	getDate,
-} from 'src/models/Posts';
+} from 'src/models';
 
 import {
 	ArtworkImageComponent,
-} from '../components/ArtworkImageComponent';
+} from '../components';
+
+import {
+	styles,
+} from '../styles/ArtworkComponentStyle';
 
 interface ComponentProps {
 	post: Post;

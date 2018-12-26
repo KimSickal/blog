@@ -1,48 +1,48 @@
 import {
-	Style,
-} from 'src/models/Style';
+	CSSProperties,
+} from 'react';
 
 export const styles = {
 	container: {
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
-	} as Style,
+	} as CSSProperties,
 
 
 	container_h1: {
 		textAlign: 'center',
-	} as Style,
+	} as CSSProperties,
 
 	container_contents: {
 		flexDirection: 'column',
 		justifyContent: 'center',
-	} as Style,
+	} as CSSProperties,
 
 	menuBar: {
 		display: 'flex',
 		flexDirection: 'row',
 		paddingLeft: '10px',
 		paddingRight: '10px',
-	} as Style,
+	} as CSSProperties,
 
 	menuBar_menu: {
 		flex: 1,
-	} as Style,
+	} as CSSProperties,
 
 	menuBar_menu_selected: {
 		flex: 1,
 		borderBottom: 'solid 2px #ced4da',
-	} as Style,
+	} as CSSProperties,
 
 	menuBar_menu_p: {
 		textAlign: 'center',
 		color: '#ced4da',
-	} as Style,
+	} as CSSProperties,
 
 	menuBar_menu_p_selected: {
 		flex: 1,
 		textAlign: 'center',
 		color: 'black',
-	} as Style,
+	} as CSSProperties,
 };

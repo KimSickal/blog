@@ -1,5 +1,8 @@
 import * as React from 'react';
-import { styles } from '../styles/BannerComponentStyle';
+
+import {
+	styles,
+} from '../styles/BannerComponentStyle';
 
 import Background from '../../data/sources/banner_image_revolve.jpg';
 

@@ -1,28 +1,19 @@
 import * as React from 'react';
 
 import {
-	styles,
-} from './V3ContainerStyle';
+	tabList,
+	Post,
+	selectedStyle,
+} from '../models';
 
 import {
 	ArtworkComponent,
-} from './components/ArtworkComponent';
-
-import {
-	Post,
-} from '../models/Posts';
-
-import {
 	BannerComponent,
-} from './components/BannerComponent';
+} from './components';
 
 import {
-	tabList,
-} from 'src/models/Tabs';
-
-import {
-	selectedStyle,
-} from 'src/models/Style';
+	styles,
+} from './V3ContainerStyle';
 
 interface ComponentProps {
 	data: Post[];

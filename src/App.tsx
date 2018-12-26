@@ -3,7 +3,7 @@ import * as React from 'react';
 import {
 	Post,
 	requireData,
-} from './models/Posts';
+} from './models';
 
 import {
 	V1Container,
