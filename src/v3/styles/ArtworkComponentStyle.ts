@@ -2,7 +2,7 @@ import {
 	CSSProperties,
 } from 'react';
 
-export const styles = {
+export const styles: { [key: string]: CSSProperties} = {
 	artwork: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -13,32 +13,32 @@ export const styles = {
 		padding: '100px',
 		paddingBottom: '0px',
 		paddingTop: '0px',
-	} as CSSProperties,
+	},
 
 	title: {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		marginTop: '30px',
-	} as CSSProperties,
+	},
 
 	title_p: {
 		margin: '0px',
 		fontSize: '20px',
 		maxWidth: '100%',
-	} as CSSProperties,
+	},
 
 	summary: {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		marginTop: '20px',
-	} as CSSProperties,
+	},
 
 	summary_p: {
 		margin: '0px',
 		color: '#868e96',
-	} as CSSProperties,
+	},
 
 	markdown: {
 		display: 'flex',
@@ -48,17 +48,17 @@ export const styles = {
 		justifyContent: 'flex-start',
 		paddingBottom: '10px',
 		paddingTop: '10px',
-	} as CSSProperties,
+	},
 
 	content: {
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
 		marginTop: '20px',
-	} as CSSProperties,
+	},
 
 	division: {
 		paddingBottom: '40px',
 		borderBottom: '2px solid #ced4da',
-	} as CSSProperties,
+	},
 };
