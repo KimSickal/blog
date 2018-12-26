@@ -1,8 +1,4 @@
-import {
-	Style,
-} from 'src/models/Style';
-
-export const styles: { [key: string]: Style } = {
+export const styles = {
 	artwork: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -13,52 +9,52 @@ export const styles: { [key: string]: Style } = {
 		padding: '100px',
 		paddingBottom: '0px',
 		paddingTop: '0px',
-	} as Style,
+	} as CSSStyleDeclaration,
 
 	title: {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		marginTop: '30px',
-	} as Style,
+	} as CSSStyleDeclaration,
 
 	title_p: {
 		margin: '0px',
 		fontSize: '20px',
 		maxWidth: '100%',
-	} as Style,
+	} as CSSStyleDeclaration,
 
 	summary: {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		marginTop: '20px',
-	} as Style,
+	} as CSSStyleDeclaration,
 
 	summary_p: {
 		margin: '0px',
 		color: '#868e96',
-	} as Style,
+	} as CSSStyleDeclaration,
 
 	markdown: {
 		display: 'flex',
-		flex: 1,
+		flex: '1',
 		flexDirection: 'column',
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
 		paddingBottom: '10px',
 		paddingTop: '10px',
-	} as Style,
+	} as CSSStyleDeclaration,
 
 	content: {
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
 		marginTop: '20px',
-	} as Style,
+	} as CSSStyleDeclaration,
 
 	division: {
 		paddingBottom: '40px',
 		borderBottom: '2px solid #ced4da',
-	} as Style,
+	} as CSSStyleDeclaration,
 };

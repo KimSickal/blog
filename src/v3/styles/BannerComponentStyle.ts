@@ -1,17 +1,15 @@
-import { Style } from 'src/models/Style';
-
 export const styles = {
 	banner: {
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
-	} as Style,
+	} as CSSStyleDeclaration,
 
 	banner_h1: {
 		color: 'white',
-	} as Style,
+	} as CSSStyleDeclaration,
 
 	banner_p: {
 		color: 'white',
-	} as Style,
+	} as CSSStyleDeclaration,
 };
