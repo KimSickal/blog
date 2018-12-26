@@ -16,6 +16,7 @@ import{
 
 interface ComponentProps {
 	post: Post;
+	postNumber: number;
 }
 
 interface ComponentState {
@@ -53,6 +54,7 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 	public render() {
 		const {
 			post,
+			postNumber,
 		} = this.props;
 
 		return (
@@ -73,7 +75,7 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 					onClick={this.handleClick}
 				>
 					<p style={styles.summary_p}>
-						{`분류: ${getPostType(post)}`}
+						{`#${postNumber} / 분류: ${getPostType(post)}`}
 					</p>
 					<p style={styles.summary_p}>
 						{getDate(post)}

@@ -5,5 +5,6 @@ export const styles = {
         display: 'flex',
         marginBottom: '10px',
         maxWidth: '100%',
+        cursor: 'pointer',
     } as Style,
 }

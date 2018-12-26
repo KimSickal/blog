@@ -50,6 +50,7 @@ export function loadImagesToComponent(post: Post, style: Style | null = null): R
 					style={style === null ? {} : style}
 					src={requireFileOfPost(post, imageName)}
 					key={i}
+					onClick={()=>window.open(requireFileOfPost(post, imageName))}
 				/>
 			);
 		})

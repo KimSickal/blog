@@ -52,10 +52,12 @@ export class V3Container extends React.Component<ComponentProps, ComponentStates
 					</div>
 					{
 						this.props.data.map((post, i) => {
-							return <ArtworkComponent
-								post={post}
-								key={i}
-							/>
+							return (
+								<ArtworkComponent
+									post={post}
+									postNumber={i}
+								/>
+							);
 						})
 					}
 				</div>
