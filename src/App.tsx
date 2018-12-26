@@ -1,11 +1,31 @@
 import * as React from 'react';
+
+import {
+	Post,
+	requireData,
+} from './models/Posts';
+
+import {
+	V1Container,
+} from './v1/V1Container';
+
+import {
+	V2Container,
+} from './v2/V2Container';
+
+import {
+	V3Container,
+} from './v3/V3Container';
+
+import {
+	screenSize,
+} from './constants/screen';
+
+import {
+	latestVersion,
+} from './constants/constants';
+
 import './App.css';
-import { Post, requireData } from './models/Posts';
-import { V1Container } from './v1/V1Container';
-import { V2Container } from './v2/V2Container';
-import { screenSize } from './constants/screen';
-import { latestVersion } from './constants/constants';
-import { V3Container } from './v3/V3Container';
 
 interface ComponentStates {
 	data: Post[];
@@ -25,22 +45,22 @@ class App extends React.Component<{}, ComponentStates> {
 		this.onResize = this.onResize.bind(this);
 	}
 
-	handleSelect(event: React.FormEvent<HTMLSelectElement>) {
-		this.setState({ selectedVersion: parseInt(event.currentTarget.value) })
+	private handleSelect(event: React.FormEvent<HTMLSelectElement>) {
+		this.setState({ selectedVersion: parseInt(event.currentTarget.value, 10) });
 	}
 
-	calculateScreenWidth() {
+	private calculateScreenWidth() {
 		return Math.max(Math.min(document.body.clientWidth, screenSize.maxWidth), screenSize.minWidth);
 	}
 
-	onResize() {
+	private onResize() {
 		this.setState({ screenWidth: this.calculateScreenWidth() });
 	}
 
-	componentDidMount() {
+	public componentDidMount() {
 		this.setState({
 			data: requireData(),
-		})
+		});
 		window.addEventListener('resize', this.onResize);
 		this.onResize();
 	}
@@ -54,11 +74,11 @@ class App extends React.Component<{}, ComponentStates> {
 					<div className="headerVersionControl">
 						<select
 							className="versionList"
-							onChange={event => this.handleSelect(event)}
+							onChange={(event) => this.handleSelect(event)}
 							value={`${this.state.selectedVersion}`}
 						>
 							{
-								Array.from(Array(latestVersion)).map((_e, i) => {
+								Array.from(Array(latestVersion)).map((e, i) => {
 									return (
 										<option
 											value={`${i + 1}`}

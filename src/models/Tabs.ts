@@ -3,4 +3,4 @@ export const tabList = [
 	'Gallery',
 	'etc',
 	'About',
-]
+];

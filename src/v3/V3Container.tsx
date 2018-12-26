@@ -1,10 +1,28 @@
 import * as React from 'react';
-import { styles } from './V3ContainerStyle';
-import { ArtworkComponent } from './components/ArtworkComponent';
-import { Post } from '../models/Posts';
-import { BannerComponent } from './components/BannerComponent';
-import { tabList } from 'src/models/Tabs';
-import { selectedStyle } from 'src/models/Style';
+
+import {
+	styles,
+} from './V3ContainerStyle';
+
+import {
+	ArtworkComponent,
+} from './components/ArtworkComponent';
+
+import {
+	Post,
+} from '../models/Posts';
+
+import {
+	BannerComponent,
+} from './components/BannerComponent';
+
+import {
+	tabList,
+} from 'src/models/Tabs';
+
+import {
+	selectedStyle,
+} from 'src/models/Style';
 
 interface ComponentProps {
 	data: Post[];
@@ -20,7 +38,7 @@ export class V3Container extends React.Component<ComponentProps, ComponentStates
 		super(props);
 		this.state = {
 			selectedTab: 0,
-		}
+		};
 	}
 
 	public render() {
@@ -46,7 +64,7 @@ export class V3Container extends React.Component<ComponentProps, ComponentStates
 											{e}
 										</p>
 									</div>
-								)
+								);
 							})
 						}
 					</div>

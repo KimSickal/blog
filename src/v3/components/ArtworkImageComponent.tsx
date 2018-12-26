@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-	styles
+	styles,
 } from '../styles/ArtworkImageComponentStyle';
 import {
 	Post,
@@ -13,7 +13,7 @@ interface ComponentProps {
 
 export class ArtworkImageComponent extends React.Component<ComponentProps> {
 	constructor(props: ComponentProps) {
-		super(props)
+		super(props);
 	}
 
 	public render() {

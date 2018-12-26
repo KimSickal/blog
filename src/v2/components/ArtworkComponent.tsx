@@ -1,7 +1,7 @@
 import * as React from 'react';
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown';
 import {
-	styles
+	styles,
 } from '../styles/ArtworkComponentStyle';
 import {
 	Post,
@@ -10,9 +10,9 @@ import {
 	getPostType,
 	getDate,
 } from 'src/models/Posts';
-import{
-	ArtworkImageComponent
-} from '../components/ArtworkImageComponent'
+import {
+	ArtworkImageComponent,
+} from '../components/ArtworkImageComponent';
 
 interface ComponentProps {
 	post: Post;
@@ -25,15 +25,15 @@ interface ComponentState {
 
 export class ArtworkComponent extends React.Component<ComponentProps, ComponentState> {
 	constructor(props: ComponentProps) {
-		super(props)
+		super(props);
 		this.state = {
-			markdownText: "",
+			markdownText: '',
 			isOpen: false,
 		};
 		this.handleClick = this.handleClick.bind(this);
 	}
 
-	handleClick() {
+	public handleClick() {
 		const {
 			post,
 		} = this.props;
@@ -43,10 +43,10 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 			loadMarkdown(post).then((response) => {
 				return response.text().then((text) => {
 					this.setState({
-						'markdownText': text,
+						markdownText: text,
 					});
-				})
-			})
+				});
+			});
 		}
 	}
 

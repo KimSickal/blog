@@ -1,4 +1,4 @@
 export const screenSize = {
-    maxWidth: 1000,
-    minWidth: 400,
-}
+	maxWidth: 1000,
+	minWidth: 400,
+};

@@ -20,7 +20,7 @@ export class V2Container extends React.Component<ComponentProps, ComponentStates
 		super(props);
 		this.state = {
 			selectedTab: 0,
-		}
+		};
 	}
 
 	public render() {
@@ -46,7 +46,7 @@ export class V2Container extends React.Component<ComponentProps, ComponentStates
 											{e}
 										</p>
 									</div>
-								)
+								);
 							})
 						}
 					</div>
@@ -55,7 +55,7 @@ export class V2Container extends React.Component<ComponentProps, ComponentStates
 							return <ArtworkComponent
 								post={post}
 								key={i}
-							/>
+							/>;
 						})
 					}
 				</div>

@@ -1,4 +1,4 @@
 export const defaultText = {
-	title: "Untitled",
-	type: "Untyped",
-}
+	title: 'Untitled',
+	type: 'Untyped',
+};

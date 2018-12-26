@@ -19,15 +19,15 @@ interface ComponentState {
 
 export class ArtworkComponent extends React.Component<ComponentProps, ComponentState> {
 	constructor(props: ComponentProps) {
-		super(props)
+		super(props);
 		this.state = {
-			markdownText: "",
+			markdownText: '',
 			isOpen: false,
 		};
 		this.handleClick = this.handleClick.bind(this);
 	}
 
-	handleClick() {
+	public handleClick() {
 		const {
 			post,
 		} = this.props;
@@ -37,10 +37,10 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 			loadMarkdown(post).then((response) => {
 				return response.text().then((text) => {
 					this.setState({
-						'markdownText': text,
+						markdownText: text,
 					});
-				})
-			})
+				});
+			});
 		}
 	}
 
@@ -50,9 +50,9 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 		} = this.props;
 
 		return (
-			<div className='Artwork'>
+			<div className="Artwork">
 				<div
-					className='Title'
+					className="Title"
 					onClick={this.handleClick}
 				>
 					<h2>
@@ -64,12 +64,12 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 				</div>
 				{this.state.isOpen ?
 					<div>
-						<div className='Content'>
+						<div className="Content">
 							{
 								loadImagesToComponent(post)
 							}
 						</div>
-						<div className='Markdown'>
+						<div className="Markdown">
 							<ReactMarkdown source={this.state.markdownText} />
 						</div>
 					</div>

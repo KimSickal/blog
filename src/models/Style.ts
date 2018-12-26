@@ -1,24 +1,24 @@
 import {
-    FlexDirectionProperty,
-    AlignItemsProperty,
-    DisplayProperty,
-    TextAlignProperty,
-    JustifyContentProperty,
+	FlexDirectionProperty,
+	AlignItemsProperty,
+	DisplayProperty,
+	TextAlignProperty,
+	JustifyContentProperty,
 } from 'csstype';
 
 export interface Style {
-    display?: DisplayProperty;
+	display?: DisplayProperty;
 
-    flex?: string | number;
+	flex?: string | number;
 
-    flexDirection?: FlexDirectionProperty;
+	flexDirection?: FlexDirectionProperty;
 
-    alignItems?: AlignItemsProperty;
-    justifyContent?: JustifyContentProperty;
+	alignItems?: AlignItemsProperty;
+	justifyContent?: JustifyContentProperty;
 
-    textAlign?: TextAlignProperty;
+	textAlign?: TextAlignProperty;
 }
 
-export function selectedStyle(styleName: string, isSelected: boolean,) {
-    return styleName + (isSelected ? '_selected' : '');
+export function selectedStyle(styleName: string, isSelected: boolean ) {
+	return styleName + (isSelected ? '_selected' : '');
 }

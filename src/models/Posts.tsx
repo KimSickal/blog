@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import {
-	Style
+	Style,
 } from './Style';
 
 import {
-	defaultText
+	defaultText,
 } from 'src/constants/text';
 
 export interface Post {
@@ -25,11 +25,11 @@ export function requireData(): Post[] {
 	return require('../data/data.json').sort((a: Post, b: Post) => a.date === b.date ? 0 : (a.date > b.date ? -1 : 1));
 }
 
-function requireFileOfPost(post: Post, fileName: string, extension: string = "") {
+function requireFileOfPost(post: Post, fileName: string, extension: string = '') {
 	return require(`../data/posts/${getFileLocation(post, fileName, extension)}`);
 }
 
-function getFileLocation(post: Post, fileName: string, extension: string = ""): string {
+function getFileLocation(post: Post, fileName: string, extension: string = ''): string {
 	return `${getFolderLocation(post)}${fileName}${extension}`;
 }
 
@@ -54,7 +54,7 @@ export function loadImagesToComponent(post: Post, style: Style | null = null): R
 				/>
 			);
 		})
-	)
+	);
 }
 
 function returnAfterNullcheck(obj: any, defaultValue: any): any {

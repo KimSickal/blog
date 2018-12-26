@@ -1,4 +1,6 @@
-import { Style } from 'src/models/Style';
+import {
+	Style,
+} from 'src/models/Style';
 
 export const styles = {
 	container: {
