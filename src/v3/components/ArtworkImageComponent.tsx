@@ -43,10 +43,6 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 	}
 
 	private loadImage(imageAddress: string) {
-		const {
-			title,
-		} = this.state;
-
 		this.setState({
 			currentImage: null,
 		});
@@ -54,18 +50,9 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 		const img = new Image();
 		const file = requireFileOfPost(this.props.post, imageAddress);
 		img.onload = (() => {
-			window.setTimeout((() => {
-				this.setState({
-					currentImage: file,
-				});
-				const comp = document.getElementById(title);
-				if (comp !== null) {
-					console.log(comp.clientHeight);
-					this.setState({
-						currentImageHeight: comp.clientHeight,
-					});
-				}
-			}), 1000);
+			this.setState({
+				currentImage: file,
+			});
 		});
 		img.src = file;
 	}
@@ -83,6 +70,26 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 		});
 
 		this.loadImage(images[0]);
+	}
+
+	public componentDidUpdate({}: ComponentProps, prevState: ComponentStates) {
+		const {
+			currentImage,
+			title,
+		} = this.state;
+
+		if(prevState.currentImage === currentImage) {
+			return;
+		}
+		else {
+			const comp = document.getElementById(title);
+			if (comp !== null) {
+				console.log(comp.clientHeight);
+				this.setState({
+					currentImageHeight: comp.clientHeight,
+				});
+			}
+		}
 	}
 
 	private onClickArrow(event: React.MouseEvent<HTMLElement>, increase: boolean) {
