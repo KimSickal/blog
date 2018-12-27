@@ -21,6 +21,7 @@ interface ComponentProps {
 interface ComponentStates {
 	imageNumber: number;
 	currentImage: string | null;
+	mouseOver: boolean;
 }
 
 export class ArtworkImageComponent extends React.Component<ComponentProps, ComponentStates> {
@@ -29,6 +30,7 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 		this.state = {
 			imageNumber: 0,
 			currentImage: null,
+			mouseOver: false,
 		};
 		this.onClickArrow = this.onClickArrow.bind(this);
 	}
@@ -67,17 +69,17 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 
 		const maxLength = getImages(post).length;
 
-		if(maxLength <= 1) {
+		if (maxLength <= 1) {
 			return;
 		}
 
 		imageNumber += (increase ? 1 : -1);
 
-		if(imageNumber < 0) {
+		if (imageNumber < 0) {
 			imageNumber = maxLength - 1;
 		}
 
-		if(imageNumber >= maxLength) {
+		if (imageNumber >= maxLength) {
 			imageNumber = 0;
 		}
 
@@ -91,37 +93,64 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 	public render() {
 		const {
 			currentImage,
+			mouseOver,
 		} = this.state;
 
-		if(currentImage === null) {
+		if (currentImage === null) {
 			return (
 				<LoadingComponent />
 			);
 		}
 
+		const opacity = mouseOver ? 0.5 : 0;
+
 		return (
 			<div
 				style={styles.content}
+				onMouseOver={() => {
+					this.setState({
+						mouseOver: true,
+					});
+				}}
+				onMouseOut={() => {
+					this.setState({
+						mouseOver: false,
+					});
+				}}
 			>
 				<img
 					style={styles.content_img}
 					src={currentImage}
-					onClick={()=>window.open(currentImage)}
+					onClick={() => window.open(currentImage)}
 				/>
 				<div
 					style={{
 						...styles.content_img_button,
 						...styles.content_img_button_left,
+						opacity,
 					}}
-					onClick={() => {this.onClickArrow(false);}}
-				/>
+					onClick={() => { this.onClickArrow(false); }}
+				>
+					<p
+						style={styles.content_img_button_text}
+					>
+						{'◀'}
+					</p>
+				</div>
 				<div
 					style={{
 						...styles.content_img_button,
 						...styles.content_img_button_right,
+						opacity,
 					}}
-					onClick={() => {this.onClickArrow(true);}}
-				/>
+					onClick={() => { this.onClickArrow(true); }}
+				>
+					<p
+						style={styles.content_img_button_text}
+					>
+						{'▶'}
+					</p>
+				</div>
 			</div>
 		);
 	}
