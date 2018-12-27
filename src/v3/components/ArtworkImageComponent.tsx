@@ -84,7 +84,6 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 		else {
 			const comp = document.getElementById(title);
 			if (comp !== null) {
-				console.log(comp.clientHeight);
 				this.setState({
 					currentImageHeight: comp.clientHeight,
 				});
