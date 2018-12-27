@@ -3,6 +3,12 @@ import {
 } from 'react';
 
 export const styles: { [key: string]: CSSProperties} = {
+	loading: {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+
 	loading_spinner: {
 		display: 'block',
 		width: '46px',

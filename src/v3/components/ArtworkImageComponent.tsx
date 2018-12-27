@@ -4,6 +4,7 @@ import {
 	Post,
 	getImages,
 	requireFileOfPost,
+	getTitle,
 } from 'src/models';
 
 import {
@@ -20,8 +21,10 @@ interface ComponentProps {
 
 interface ComponentStates {
 	images: string[];
+	title: string;
 	imageNumber: number;
 	currentImage: string | null;
+	currentImageHeight: number;
 	mouseOver: boolean;
 }
 
@@ -30,23 +33,39 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 		super(props);
 		this.state = {
 			images: [],
+			title: '',
 			imageNumber: 0,
 			currentImage: null,
+			currentImageHeight: 0,
 			mouseOver: false,
 		};
 		this.onClickArrow = this.onClickArrow.bind(this);
 	}
 
 	private loadImage(imageAddress: string) {
+		const {
+			title,
+		} = this.state;
+
 		this.setState({
 			currentImage: null,
 		});
+
 		const img = new Image();
 		const file = requireFileOfPost(this.props.post, imageAddress);
 		img.onload = (() => {
-			this.setState({
-				currentImage: file,
-			});
+			window.setTimeout((() => {
+				this.setState({
+					currentImage: file,
+				});
+				const comp = document.getElementById(title);
+				if (comp !== null) {
+					console.log(comp.clientHeight);
+					this.setState({
+						currentImageHeight: comp.clientHeight,
+					});
+				}
+			}), 1000);
 		});
 		img.src = file;
 	}
@@ -60,6 +79,7 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 
 		this.setState({
 			images: images,
+			title: getTitle(post),
 		});
 
 		this.loadImage(images[0]);
@@ -102,13 +122,18 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 	public render() {
 		const {
 			images,
+			title: imageTitle,
 			currentImage,
+			currentImageHeight,
 			mouseOver,
 		} = this.state;
 
 		if (currentImage === null) {
 			return (
-				<LoadingComponent />
+				<LoadingComponent
+					height={currentImageHeight}
+					backgroundColor={'#f8f9fa'}
+				/>
 			);
 		}
 
@@ -116,6 +141,7 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 
 		return (
 			<div
+				id={imageTitle}
 				style={styles.content}
 				onMouseOver={() => {
 					this.setState({

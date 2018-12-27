@@ -5,7 +5,6 @@ import {
 export const styles: { [key: string]: CSSProperties} = {
 	content: {
 		position: 'relative',
-		marginBottom: '10px',
 	},
 
 	content_img: {
