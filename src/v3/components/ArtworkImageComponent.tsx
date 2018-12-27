@@ -83,11 +83,11 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 			imageNumber = 0;
 		}
 
-		this.loadImage(images[imageNumber]);
-
 		this.setState({
 			imageNumber: imageNumber,
 		});
+
+		this.loadImage(images[imageNumber]);
 	}
 
 	public render() {
@@ -122,6 +122,12 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 					style={styles.content_img}
 					src={currentImage}
 					onClick={() => window.open(currentImage)}
+				/>
+				<div
+					style={{
+						...styles.content_img_shadow,
+						opacity,
+					}}
 				/>
 				<div
 					style={{
