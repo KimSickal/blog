@@ -36,6 +36,9 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 	}
 
 	private loadImage(imageAddress: string) {
+		this.setState({
+			currentImage: null,
+		});
 		const img = new Image();
 		const file = requireFileOfPost(this.props.post, imageAddress);
 		img.onload = (() => {
@@ -56,7 +59,7 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 		this.loadImage(images[0]);
 	}
 
-	private onClickArrow(increase: boolean) {
+	private onClickArrow(event: React.MouseEvent<HTMLElement>, increase: boolean) {
 		const {
 			post,
 		} = this.props;
@@ -88,6 +91,8 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 		});
 
 		this.loadImage(images[imageNumber]);
+
+		event.stopPropagation();
 	}
 
 	public render() {
@@ -102,7 +107,7 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 			);
 		}
 
-		const opacity = mouseOver ? 0.5 : 0;
+		const opacity = mouseOver ? 0.7 : 0;
 
 		return (
 			<div
@@ -121,41 +126,40 @@ export class ArtworkImageComponent extends React.Component<ComponentProps, Compo
 				<img
 					style={styles.content_img}
 					src={currentImage}
-					onClick={() => window.open(currentImage)}
 				/>
 				<div
 					style={{
 						...styles.content_img_shadow,
 						opacity,
 					}}
-				/>
-				<div
-					style={{
-						...styles.content_img_button,
-						...styles.content_img_button_left,
-						opacity,
-					}}
-					onClick={() => { this.onClickArrow(false); }}
+					onClick={() => window.open(currentImage)}
 				>
-					<p
-						style={styles.content_img_button_text}
+					<div
+						style={{
+							...styles.content_img_button,
+							...styles.content_img_button_left,
+						}}
+						onClick={(event: React.MouseEvent<HTMLElement>) => { this.onClickArrow(event, false); }}
 					>
-						{'◀'}
-					</p>
-				</div>
-				<div
-					style={{
-						...styles.content_img_button,
-						...styles.content_img_button_right,
-						opacity,
-					}}
-					onClick={() => { this.onClickArrow(true); }}
-				>
-					<p
-						style={styles.content_img_button_text}
+						<p
+							style={styles.content_img_button_text}
+						>
+							{'◀'}
+						</p>
+					</div>
+					<div
+						style={{
+							...styles.content_img_button,
+							...styles.content_img_button_right,
+						}}
+						onClick={(event: React.MouseEvent<HTMLElement>) => { this.onClickArrow(event, true); }}
 					>
-						{'▶'}
-					</p>
+						<p
+							style={styles.content_img_button_text}
+						>
+							{'▶'}
+						</p>
+					</div>
 				</div>
 			</div>
 		);
