@@ -15,6 +15,10 @@ export const styles: { [key: string]: CSSProperties} = {
 		paddingTop: '0px',
 	},
 
+	contract: {
+		cursor: 'pointer',
+	},
+
 	title: {
 		display: 'flex',
 		flexDirection: 'row',

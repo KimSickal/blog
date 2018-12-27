@@ -64,26 +64,29 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 		return (
 			<div style={styles.artwork}>
 				<div
-					style={styles.title}
+					style={styles.contract}
 					onClick={this.handleClick}
 				>
-					<p style={styles.title_p}>
-						{getTitle(post)}
-					</p>
-					<p style={styles.title_p}>
-						{this.state.isOpen ? '▲' : '▼'}
-					</p>
-				</div>
-				<div
-					style={styles.summary}
-					onClick={this.handleClick}
-				>
-					<p style={styles.summary_p}>
-						{`#${postNumber} / 분류: ${getPostType(post)}`}
-					</p>
-					<p style={styles.summary_p}>
-						{getDate(post)}
-					</p>
+					<div
+						style={styles.title}
+					>
+						<p style={styles.title_p}>
+							{getTitle(post)}
+						</p>
+						<p style={styles.title_p}>
+							{this.state.isOpen ? '▲' : '▼'}
+						</p>
+					</div>
+					<div
+						style={styles.summary}
+					>
+						<p style={styles.summary_p}>
+							{`#${postNumber} / 분류: ${getPostType(post)}`}
+						</p>
+						<p style={styles.summary_p}>
+							{getDate(post)}
+						</p>
+					</div>
 				</div>
 				{this.state.isOpen ?
 					<div style={styles.content}>
