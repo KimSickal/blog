@@ -26,6 +26,7 @@ import {
 } from './constants/constants';
 
 import './App.css';
+import { Switch, Route, Redirect } from 'react-router';
 
 interface ComponentStates {
 	data: Post[];
@@ -47,6 +48,7 @@ class App extends React.Component<{}, ComponentStates> {
 
 	private handleSelect(event: React.FormEvent<HTMLSelectElement>) {
 		this.setState({ selectedVersion: parseInt(event.currentTarget.value, 10) });
+		window.location.pathname = `v${event.currentTarget.value}`;
 	}
 
 	private calculateScreenWidth() {
@@ -92,7 +94,7 @@ class App extends React.Component<{}, ComponentStates> {
 						</select>
 					</div>
 				</div>
-				{
+				{/* {
 					(() => {
 						switch (this.state.selectedVersion) {
 							case 1:
@@ -105,7 +107,53 @@ class App extends React.Component<{}, ComponentStates> {
 								return null;
 						}
 					})()
-				}
+				} */}
+				<Switch>
+					<Route
+						exact={true}
+						path={'/'}
+						render={() => {
+							return (
+								<Redirect
+									to={'/v3'}
+								/>
+							);
+						}}
+					/>
+					<Route
+						exact={true}
+						path={'/v3'}
+						render={() => {
+							return (
+								<V3Container
+									{...this.state}
+								/>
+							);
+						}}
+					/>
+					<Route
+						exact={true}
+						path={'/v2'}
+						render={() => {
+							return (
+								<V2Container
+									{...this.state}
+								/>
+							);
+						}}
+					/>
+					<Route
+						exact={true}
+						path={'/v1'}
+						render={() => {
+							return (
+								<V1Container
+									{...this.state}
+								/>
+							);
+						}}
+					/>
+				</Switch>
 			</div>
 		);
 	}
