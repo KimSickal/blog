@@ -65,6 +65,7 @@ export class V3Container extends React.Component<ComponentProps, ComponentStates
 								<ArtworkComponent
 									post={post}
 									postNumber={i}
+									key={i}
 								/>
 							);
 						})
