@@ -43,7 +43,6 @@ class App extends React.Component<{}, ComponentStates> {
 	constructor(props: {}) {
 		super(props);
 		const selectedVersion = parseInt(window.location.pathname.substring(7).split('/')[0], 10);
-		console.log(window.location.pathname.substring(7).split('/'));
 		this.state = {
 			data: [],
 			screenWidth: this.calculateScreenWidth(),
