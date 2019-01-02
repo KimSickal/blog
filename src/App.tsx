@@ -1,6 +1,12 @@
 import * as React from 'react';
 
 import {
+	Switch,
+	Route,
+	Redirect,
+} from 'react-router';
+
+import {
 	Post,
 	requireData,
 } from './models';
@@ -26,7 +32,6 @@ import {
 } from './constants/constants';
 
 import './App.css';
-import { Switch, Route, Redirect } from 'react-router';
 
 interface ComponentStates {
 	data: Post[];
@@ -34,7 +39,7 @@ interface ComponentStates {
 	selectedVersion: number;
 }
 
-class App extends React.Component<{}, ComponentStates> {
+export class App extends React.Component<{}, ComponentStates> {
 	constructor(props: {}) {
 		super(props);
 		this.state = {
@@ -158,5 +163,3 @@ class App extends React.Component<{}, ComponentStates> {
 		);
 	}
 }
-
-export default App;
