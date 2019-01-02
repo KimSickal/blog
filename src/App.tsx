@@ -24,6 +24,10 @@ import {
 } from './v3/V3Container';
 
 import {
+	V4Container,
+} from './v4/V4Container';
+
+import {
 	screenSize,
 } from './constants/screen';
 
@@ -121,7 +125,17 @@ class App extends React.Component<{}, ComponentStates> {
 						render={() => {
 							return (
 								<Redirect
-									to={'/blog/v3'}
+									to={'/blog/v4'}
+								/>
+							);
+						}}
+					/>
+					<Route
+						path={'/blog/v4'}
+						render={() => {
+							return (
+								<V4Container
+									{...this.state}
 								/>
 							);
 						}}
