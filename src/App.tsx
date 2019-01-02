@@ -111,11 +111,11 @@ class App extends React.Component<{}, ComponentStates> {
 				<Switch>
 					<Route
 						exact={true}
-						path={'/'}
+						path={''}
 						render={() => {
 							return (
-								<Redirect
-									to={'/v3'}
+								<V3Container
+									{...this.state}
 								/>
 							);
 						}}
@@ -125,8 +125,8 @@ class App extends React.Component<{}, ComponentStates> {
 						path={'/v3'}
 						render={() => {
 							return (
-								<V3Container
-									{...this.state}
+								<Redirect
+									to={''}
 								/>
 							);
 						}}
