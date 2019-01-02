@@ -1,6 +1,12 @@
 import * as React from 'react';
 
 import {
+	Switch,
+	Route,
+	Redirect,
+} from 'react-router';
+
+import {
 	Post,
 	requireData,
 } from './models';
@@ -26,7 +32,6 @@ import {
 } from './constants/constants';
 
 import './App.css';
-import { Switch, Route, Redirect } from 'react-router';
 
 interface ComponentStates {
 	data: Post[];
@@ -37,10 +42,12 @@ interface ComponentStates {
 class App extends React.Component<{}, ComponentStates> {
 	constructor(props: {}) {
 		super(props);
+		const selectedVersion = parseInt(window.location.pathname.substring(7).split('/')[0], 10);
+		console.log(window.location.pathname.substring(7).split('/'));
 		this.state = {
 			data: [],
 			screenWidth: this.calculateScreenWidth(),
-			selectedVersion: latestVersion,
+			selectedVersion: selectedVersion,
 		};
 		this.calculateScreenWidth = this.calculateScreenWidth.bind(this);
 		this.onResize = this.onResize.bind(this);
@@ -48,7 +55,7 @@ class App extends React.Component<{}, ComponentStates> {
 
 	private handleSelect(event: React.FormEvent<HTMLSelectElement>) {
 		this.setState({ selectedVersion: parseInt(event.currentTarget.value, 10) });
-		window.location.pathname = `v${event.currentTarget.value}`;
+		window.location.pathname = `blog/v${event.currentTarget.value}`;
 	}
 
 	private calculateScreenWidth() {
@@ -77,7 +84,7 @@ class App extends React.Component<{}, ComponentStates> {
 						<select
 							className="versionList"
 							onChange={(event) => this.handleSelect(event)}
-							value={`${this.state.selectedVersion}`}
+							value={this.state.selectedVersion}
 						>
 							{
 								Array.from(Array(latestVersion)).map((e, i) => {
@@ -111,7 +118,17 @@ class App extends React.Component<{}, ComponentStates> {
 				<Switch>
 					<Route
 						exact={true}
-						path={''}
+						path={'/blog'}
+						render={() => {
+							return (
+								<Redirect
+									to={'/blog/v3'}
+								/>
+							);
+						}}
+					/>
+					<Route
+						path={'/blog/v3'}
 						render={() => {
 							return (
 								<V3Container
@@ -121,19 +138,7 @@ class App extends React.Component<{}, ComponentStates> {
 						}}
 					/>
 					<Route
-						exact={true}
-						path={'/v3'}
-						render={() => {
-							return (
-								<Redirect
-									to={''}
-								/>
-							);
-						}}
-					/>
-					<Route
-						exact={true}
-						path={'/v2'}
+						path={'/blog/v2'}
 						render={() => {
 							return (
 								<V2Container
@@ -143,8 +148,7 @@ class App extends React.Component<{}, ComponentStates> {
 						}}
 					/>
 					<Route
-						exact={true}
-						path={'/v1'}
+						path={'/blog/v1'}
 						render={() => {
 							return (
 								<V1Container
