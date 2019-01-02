@@ -3,7 +3,7 @@ import * as React from 'react';
 import {
 	Switch,
 	Route,
-	Redirect,
+	// Redirect,
 } from 'react-router';
 
 import {
@@ -53,7 +53,7 @@ export class App extends React.Component<{}, ComponentStates> {
 
 	private handleSelect(event: React.FormEvent<HTMLSelectElement>) {
 		this.setState({ selectedVersion: parseInt(event.currentTarget.value, 10) });
-		window.location.pathname = `v${event.currentTarget.value}`;
+		// window.location.pathname = `v${event.currentTarget.value}`;
 	}
 
 	private calculateScreenWidth() {
@@ -114,7 +114,7 @@ export class App extends React.Component<{}, ComponentStates> {
 					})()
 				} */}
 				<Switch>
-					<Route
+					{/* <Route
 						exact={true}
 						path={'/'}
 						render={() => {
@@ -128,6 +128,17 @@ export class App extends React.Component<{}, ComponentStates> {
 					<Route
 						exact={true}
 						path={'/v3'}
+						render={() => {
+							return (
+								<V3Container
+									{...this.state}
+								/>
+							);
+						}}
+					/> */}
+					<Route
+						exact={true}
+						path={'/'}
 						render={() => {
 							return (
 								<V3Container

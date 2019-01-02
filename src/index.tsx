@@ -12,7 +12,7 @@ import {
 
 import './index.css';
 
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
 	<BrowserRouter>
@@ -20,4 +20,4 @@ ReactDOM.render(
 	</BrowserRouter>,
 	document.getElementById('root') as HTMLElement,
 );
-registerServiceWorker();
+// registerServiceWorker();

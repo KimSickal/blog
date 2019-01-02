@@ -5,6 +5,7 @@ module.exports = {
 	output: {
 		filename: '[name].bundle.js',
 		path: path.resolve(__dirname, './docs'),
+		publicPath: 'http://localhost:8080/public/',
 	},
 	devtool: 'source-map',
 	resolve: {
@@ -23,7 +24,7 @@ module.exports = {
 				test: /\.(png|jpe?g|gif|svg|ico|wav|mp3|mp4|eot|ttf|ttc|woff2?)$/,
 				loader: 'file-loader',
 				options: {
-					name: `[name].[ext]?[hash]`,
+					name: `assets/[name].[ext]?[hash]`,
 				},
 			},
 			{
