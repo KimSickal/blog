@@ -1,6 +1,14 @@
 import * as React from 'react';
 
 import {
+	match,
+	Switch,
+	Route,
+	Redirect,
+	Link,
+} from 'react-router-dom';
+
+import {
 	tabList,
 	Post,
 	selectedStyle,
@@ -9,6 +17,7 @@ import {
 import {
 	ArtworkComponent,
 	BannerComponent,
+	ArtowrkPostComponent,
 } from './components';
 
 import {
@@ -16,6 +25,7 @@ import {
 } from './ContainerStyle';
 
 interface ComponentProps {
+	match: match;
 	data: Post[];
 	screenWidth: number;
 }
@@ -35,6 +45,7 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 	public render() {
 		const {
 			data,
+			match,
 		} = this.props;
 
 		const {
@@ -63,17 +74,54 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 							})
 						}
 					</div>
-					{
-						data.map((post, i) => {
-							return (
-								<ArtworkComponent
-									post={post}
-									postNumber={data.length - i}
-									key={i}
-								/>
-							);
-						})
-					}
+					<Switch>
+						<Route
+							exact={true}
+							path={`${match.path}/`}
+							render={() => {
+								return (
+									<Redirect
+										to={`${match.path}/post`}
+									/>
+								);
+							}}
+						/>
+						<Route
+							exact={true}
+							path={`${match.path}/post`}
+							render={() => {
+								return (
+									data.map((post, i) => {
+										return (
+											<Link
+												to={`${match.path}/post/${i + 1}`}
+											>
+												<ArtworkComponent
+													post={post}
+													postNumber={data.length - i}
+													key={i}
+												/>
+											</Link>
+										);
+									})
+								);
+							}}
+						/>
+						<Route
+							exact={true}
+							path={`${match.path}/post/:postId`}
+							render={(props) => {
+								const postNumber = parseInt(props.match.params.postId, 10) - 1;
+								console.log(postNumber, data);
+								return (
+									<ArtowrkPostComponent
+										post={data[postNumber]}
+										postNumber={postNumber}
+									/>
+								);
+							}}
+						/>
+					</Switch>
 				</div>
 			</div>
 		);

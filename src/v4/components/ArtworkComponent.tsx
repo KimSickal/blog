@@ -1,18 +1,12 @@
 import * as React from 'react';
 
-import ReactMarkdown from 'react-markdown';
-
 import {
 	Post,
 	getTitle,
-	loadMarkdown,
 	getPostType,
 	getDate,
 } from 'src/models';
 
-import {
-	ArtworkImageComponent,
-} from '../components';
 
 import {
 	styles,
@@ -35,24 +29,6 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 			markdownText: '',
 			isOpen: false,
 		};
-		this.handleClick = this.handleClick.bind(this);
-	}
-
-	public handleClick() {
-		const {
-			post,
-		} = this.props;
-
-		this.setState({ isOpen: !this.state.isOpen });
-		if (!this.state.isOpen) {
-			loadMarkdown(post).then((response) => {
-				return response.text().then((text) => {
-					this.setState({
-						markdownText: text,
-					});
-				});
-			});
-		}
 	}
 
 	public render() {
@@ -65,7 +41,6 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 			<div style={styles.artwork}>
 				<div
 					style={styles.contract}
-					onClick={this.handleClick}
 				>
 					<div
 						style={styles.title}
@@ -88,18 +63,6 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 						</p>
 					</div>
 				</div>
-				{this.state.isOpen ?
-					<div style={styles.content}>
-						<ArtworkImageComponent
-							{...this.props}
-						/>
-						<div style={styles.markdown}>
-							<ReactMarkdown source={this.state.markdownText} />
-						</div>
-					</div>
-					:
-					null
-				}
 				<div style={styles.division} />
 			</div>
 		);

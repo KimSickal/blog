@@ -48,7 +48,7 @@ class App extends React.Component<{}, ComponentStates> {
 		super(props);
 		const selectedVersion = parseInt(window.location.pathname.substring(7).split('/')[0], 10);
 		this.state = {
-			data: [],
+			data: requireData(),
 			screenWidth: this.calculateScreenWidth(),
 			selectedVersion: selectedVersion,
 		};
@@ -70,9 +70,6 @@ class App extends React.Component<{}, ComponentStates> {
 	}
 
 	public componentDidMount() {
-		this.setState({
-			data: requireData(),
-		});
 		window.addEventListener('resize', this.onResize);
 		this.onResize();
 	}
@@ -132,10 +129,11 @@ class App extends React.Component<{}, ComponentStates> {
 					/>
 					<Route
 						path={'/blog/v4'}
-						render={() => {
+						render={(props) => {
 							return (
 								<V4Container
 									{...this.state}
+									match={props.match}
 								/>
 							);
 						}}
