@@ -40,16 +40,6 @@ export class ArtowrkPostComponent extends React.Component<ComponentProps, Compon
 		});
 	}
 
-	public componentDidMount() {
-		loadMarkdown(this.props.post).then((response) => {
-			return response.text().then((text) => {
-				this.state = {
-					markdownText: text,
-				};
-			});
-		});
-	}
-
 	public render() {
 		return (
 			<div style={styles.content}>

@@ -116,11 +116,11 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 							exact={true}
 							path={`${match.path}/post/:postId`}
 							render={(props) => {
-								const postNumber = data.length - parseInt(props.match.params.postId, 10);
+								const postId = parseInt(props.match.params.postId, 10);
 								return (
 									<ArtowrkPostComponent
-										post={data[postNumber]}
-										postNumber={postNumber}
+										post={data[data.length - postId]}
+										postNumber={postId}
 									/>
 								);
 							}}
