@@ -32,9 +32,9 @@ export class ArtowrkPostComponent extends React.Component<ComponentProps, Compon
 		};
 		loadMarkdown(this.props.post).then((response) => {
 			return response.text().then((text) => {
-				this.state = {
+				this.setState ({
 					markdownText: text,
-				};
+				});
 			});
 		});
 	}
