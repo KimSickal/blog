@@ -95,11 +95,11 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 										return (
 											<Link
 												to={`${match.path}/post/${i + 1}`}
+												key={i}
 											>
 												<ArtworkComponent
 													post={post}
 													postNumber={data.length - i}
-													key={i}
 												/>
 											</Link>
 										);

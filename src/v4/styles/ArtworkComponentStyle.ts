@@ -16,7 +16,7 @@ export const styles: { [key: string]: CSSProperties} = {
 	},
 
 	contract: {
-		cursor: 'pointer',
+		// cursor: 'pointer',
 	},
 
 	title: {
@@ -30,6 +30,7 @@ export const styles: { [key: string]: CSSProperties} = {
 		margin: '0px',
 		fontSize: '20px',
 		maxWidth: '100%',
+		color: 'black',
 	},
 
 	summary: {
