@@ -81,13 +81,16 @@ export class ArtworkPostImageComponent extends React.Component<ComponentProps, C
 		if(prevState.currentImage === currentImage) {
 			return;
 		}
-		else {
-			const comp = document.getElementById(title);
-			if (comp !== null) {
-				this.setState({
-					currentImageHeight: comp.clientHeight,
-				});
-			}
+		const comp = document.getElementById(title);
+		if (comp !== null) {
+			this.setState({
+				currentImageHeight: comp.clientHeight,
+			});
+			window.scrollTo({
+				behavior: 'smooth',
+				left: 0,
+				top: 420,
+			});
 		}
 	}
 

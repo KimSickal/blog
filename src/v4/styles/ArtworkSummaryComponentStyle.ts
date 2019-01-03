@@ -26,7 +26,7 @@ export const styles: { [key: string]: CSSProperties} = {
 
 	title_p: {
 		margin: '0px',
-		fontSize: '20px',
+		fontSize: '24px',
 		maxWidth: '100%',
 		color: 'black',
 	},
@@ -40,6 +40,7 @@ export const styles: { [key: string]: CSSProperties} = {
 
 	summary_p: {
 		margin: '0px',
+		fontSize: '16px',
 		color: '#868e96',
 	},
 
