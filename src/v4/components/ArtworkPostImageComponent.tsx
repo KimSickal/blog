@@ -89,7 +89,7 @@ export class ArtworkPostImageComponent extends React.Component<ComponentProps, C
 			window.scrollTo({
 				behavior: 'smooth',
 				left: 0,
-				top: 420,
+				top: 478,
 			});
 		}
 	}
