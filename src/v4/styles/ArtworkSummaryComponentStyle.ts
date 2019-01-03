@@ -7,16 +7,14 @@ export const styles: { [key: string]: CSSProperties} = {
 		width: '100%',
 		display: 'flex',
 		flexDirection: 'column',
+		alignItems: 'stretch',
 		backgroundColor: 'white',
-		margin: '10px',
-		marginTop: '0px',
-		marginBottom: '0px',
 	},
 
 	contract: {
 		// cursor: 'pointer',
-		marginRight: '100px',
-		marginLeft: '100px',
+		paddingLeft: '100px',
+		paddingRight: '100px',
 	},
 
 	title: {
@@ -48,7 +46,7 @@ export const styles: { [key: string]: CSSProperties} = {
 	division: {
 		paddingBottom: '40px',
 		borderBottom: '2px solid #ced4da',
-		marginRight: '100px',
 		marginLeft: '100px',
+		marginRight: '100px',
 	},
 };

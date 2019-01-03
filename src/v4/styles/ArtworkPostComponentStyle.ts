@@ -8,8 +8,6 @@ export const styles: { [key: string]: CSSProperties} = {
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
-		marginRight: '10px',
-		marginLeft: '10px',
 	},
 
 	markdown: {

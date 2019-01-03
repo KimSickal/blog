@@ -17,13 +17,13 @@ export const styles = {
 	container_contents: {
 		flexDirection: 'column',
 		justifyContent: 'center',
+		marginLeft: '10px',
+		marginRight: '10px',
 	} as CSSProperties,
 
 	menuBar: {
 		display: 'flex',
 		flexDirection: 'row',
-		paddingLeft: '10px',
-		paddingRight: '10px',
 	} as CSSProperties,
 
 	menuBar_menu: {
