@@ -9,11 +9,11 @@ import {
 
 import {
 	LoadingComponent,
-} from '../components';
+} from '.';
 
 import {
 	styles,
-} from '../styles/ArtworkImageComponentStyle';
+} from '../styles/ArtworkPostImageComponentStyle';
 
 interface ComponentProps {
 	post: Post;
@@ -28,7 +28,7 @@ interface ComponentStates {
 	mouseOver: boolean;
 }
 
-export class ArtworkImageComponent extends React.Component<ComponentProps, ComponentStates> {
+export class ArtworkPostImageComponent extends React.Component<ComponentProps, ComponentStates> {
 	constructor(props: ComponentProps) {
 		super(props);
 		this.state = {

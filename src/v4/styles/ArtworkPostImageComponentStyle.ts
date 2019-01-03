@@ -10,6 +10,7 @@ export const styles: { [key: string]: CSSProperties} = {
 	content_img: {
 		display: 'flex',
 		maxWidth: '100%',
+		// maxHeight: '800px',
 		cursor: 'pointer',
 	},
 

@@ -10,7 +10,7 @@ import {
 
 import {
 	styles,
-} from '../styles/ArtworkComponentStyle';
+} from '../styles/ArtworkSummaryComponentStyle';
 
 interface ComponentProps {
 	post: Post;
@@ -22,7 +22,7 @@ interface ComponentState {
 	isOpen: boolean;
 }
 
-export class ArtworkComponent extends React.Component<ComponentProps, ComponentState> {
+export class ArtworkSummaryComponent extends React.Component<ComponentProps, ComponentState> {
 	constructor(props: ComponentProps) {
 		super(props);
 		this.state = {
@@ -47,9 +47,6 @@ export class ArtworkComponent extends React.Component<ComponentProps, ComponentS
 					>
 						<p style={styles.title_p}>
 							{getTitle(post)}
-						</p>
-						<p style={styles.title_p}>
-							{this.state.isOpen ? '▲' : '▼'}
 						</p>
 					</div>
 					<div

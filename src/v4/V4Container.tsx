@@ -15,7 +15,7 @@ import {
 } from '../models';
 
 import {
-	ArtworkComponent,
+	ArtworkSummaryComponent,
 	BannerComponent,
 	ArtowrkPostComponent,
 } from './components';
@@ -62,14 +62,15 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 						{
 							tabList.map((e, i) => {
 								return (
-									<div
+									<Link
+										to={`${match.path}/${e}`}
 										style={styles[selectedStyle('menuBar_menu', selectedTab === i)]}
 										key={i}
 									>
 										<p style={styles[selectedStyle('menuBar_menu_p', selectedTab === i)]}>
 											{e}
 										</p>
-									</div>
+									</Link>
 								);
 							})
 						}
@@ -94,10 +95,10 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 									data.map((post, i) => {
 										return (
 											<Link
-												to={`${match.path}/post/${i + 1}`}
+												to={`${match.path}/post/${data.length - i}`}
 												key={i}
 											>
-												<ArtworkComponent
+												<ArtworkSummaryComponent
 													post={post}
 													postNumber={data.length - i}
 												/>
@@ -111,8 +112,7 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 							exact={true}
 							path={`${match.path}/post/:postId`}
 							render={(props) => {
-								const postNumber = parseInt(props.match.params.postId, 10) - 1;
-								console.log(postNumber, data);
+								const postNumber = data.length - parseInt(props.match.params.postId, 10);
 								return (
 									<ArtowrkPostComponent
 										post={data[postNumber]}

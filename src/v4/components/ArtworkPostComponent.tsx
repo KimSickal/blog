@@ -8,12 +8,13 @@ import {
 } from 'src/models';
 
 import {
-	ArtworkImageComponent,
+	ArtworkSummaryComponent,
+	ArtworkPostImageComponent,
 } from '../components';
 
 import {
 	styles,
-} from '../styles/ArtworkComponentStyle';
+} from '../styles/ArtworkPostComponentStyle';
 
 interface ComponentProps {
 	post: Post;
@@ -52,7 +53,10 @@ export class ArtowrkPostComponent extends React.Component<ComponentProps, Compon
 	public render() {
 		return (
 			<div style={styles.content}>
-				<ArtworkImageComponent
+				<ArtworkSummaryComponent
+					{...this.props}
+				/>
+				<ArtworkPostImageComponent
 					{...this.props}
 				/>
 				<div style={styles.markdown}>
