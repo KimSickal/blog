@@ -28,6 +28,10 @@ import {
 } from './v4/V4Container';
 
 import {
+	NotFoundComponent,
+} from './NotFoundComponent';
+
+import {
 	screenSize,
 } from './constants/screen';
 
@@ -167,6 +171,9 @@ class App extends React.Component<{}, ComponentStates> {
 								/>
 							);
 						}}
+					/>
+					<Route
+						component={NotFoundComponent}
 					/>
 				</Switch>
 			</div>
