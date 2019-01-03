@@ -9,6 +9,10 @@ import {
 } from 'react-router-dom';
 
 import {
+	NotFoundComponent,
+} from 'src/NotFoundComponent';
+
+import {
 	tabList,
 	Post,
 	selectedStyle,
@@ -120,6 +124,9 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 									/>
 								);
 							}}
+						/>
+						<Route
+							component={NotFoundComponent}
 						/>
 					</Switch>
 				</div>

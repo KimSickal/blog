@@ -50,7 +50,10 @@ interface ComponentStates {
 class App extends React.Component<{}, ComponentStates> {
 	constructor(props: {}) {
 		super(props);
-		const selectedVersion = parseInt(window.location.pathname.substring(7).split('/')[0], 10);
+		let selectedVersion = parseInt(window.location.pathname.substring(7).split('/')[0], 10);
+		if(isNaN(selectedVersion)) {
+			selectedVersion = latestVersion;
+		}
 		this.state = {
 			data: requireData(),
 			screenWidth: this.calculateScreenWidth(),
