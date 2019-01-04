@@ -19,10 +19,13 @@ import {
 } from '../models';
 
 import {
-	ArtworkSummaryComponent,
 	BannerComponent,
-	ArtowrkPostComponent,
 } from './components';
+
+import {
+	ArtowrkPostContainer,
+	PostListContainer,
+} from './containers';
 
 import {
 	styles,
@@ -96,19 +99,9 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 							path={`${match.path}/post`}
 							render={() => {
 								return (
-									data.map((post, i) => {
-										return (
-											<Link
-												to={`${match.path}/post/${data.length - i}`}
-												key={i}
-											>
-												<ArtworkSummaryComponent
-													post={post}
-													postNumber={data.length - i}
-												/>
-											</Link>
-										);
-									})
+									<PostListContainer
+										{...this.props}
+									/>
 								);
 							}}
 						/>
@@ -118,7 +111,7 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 							render={(props) => {
 								const postId = parseInt(props.match.params.postId, 10);
 								return (
-									<ArtowrkPostComponent
+									<ArtowrkPostContainer
 										post={data[data.length - postId]}
 										postNumber={postId}
 									/>

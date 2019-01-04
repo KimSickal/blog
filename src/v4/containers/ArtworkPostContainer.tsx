@@ -14,7 +14,7 @@ import {
 
 import {
 	styles,
-} from '../styles/ArtworkPostComponentStyle';
+} from '../styles/ArtworkPostContainerStyle';
 
 interface ComponentProps {
 	post: Post;
@@ -25,7 +25,7 @@ interface ComponentState {
 	markdownText: string;
 }
 
-export class ArtowrkPostComponent extends React.Component<ComponentProps, ComponentState> {
+export class ArtowrkPostContainer extends React.Component<ComponentProps, ComponentState> {
 	constructor(props: ComponentProps) {
 		super(props);
 		this.state = {
@@ -43,10 +43,10 @@ export class ArtowrkPostComponent extends React.Component<ComponentProps, Compon
 	public render() {
 		return (
 			<div style={styles.content}>
-				<ArtworkSummaryComponent
+				<ArtworkPostImageComponent
 					{...this.props}
 				/>
-				<ArtworkPostImageComponent
+				<ArtworkSummaryComponent
 					{...this.props}
 				/>
 				<div style={styles.markdown}>
