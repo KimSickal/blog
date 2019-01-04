@@ -133,6 +133,7 @@ class App extends React.Component<{}, ComponentStates> {
 											/>
 										);
 									}}
+									key={i}
 								/>
 							);
 						})
