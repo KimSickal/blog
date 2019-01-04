@@ -78,8 +78,16 @@ class App extends React.Component<{}, ComponentStates> {
 							{'Name of this page'}
 						</Link>
 					</div>
-					<div className="headerSearchBar"><p>Search bar</p></div>
-					<div className="headerVersionControl">
+					<div
+						className="headerSearchBar"
+					>
+						<p>
+							{'Search bar'}
+						</p>
+					</div>
+					<div
+						className="headerVersionControl"
+					>
 						<select
 							className="versionList"
 							onChange={(event) => this.handleSelect(event)}
