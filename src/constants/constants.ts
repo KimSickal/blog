@@ -21,4 +21,4 @@ export const versions: any[] = [
 	V4Container,
 ];
 
-export const latestVersion: number = 4;
+export const latestVersion: number = versions.length;

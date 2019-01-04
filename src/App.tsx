@@ -23,6 +23,7 @@ import {
 } from './constants';
 
 import './App.css';
+import { Link } from 'react-router-dom';
 
 interface ComponentStates {
 	data: Post[];
@@ -68,7 +69,15 @@ class App extends React.Component<{}, ComponentStates> {
 		return (
 			<div className="App">
 				<div className="header" style={{ width: this.state.screenWidth }}>
-					<div className="headerTitle"><p>Name of this page</p></div>
+					<div
+						className="headerTitle"
+					>
+						<Link
+							to={baseURL}
+						>
+							{'Name of this page'}
+						</Link>
+					</div>
 					<div className="headerSearchBar"><p>Search bar</p></div>
 					<div className="headerVersionControl">
 						<select
@@ -98,7 +107,7 @@ class App extends React.Component<{}, ComponentStates> {
 						render={() => {
 							return (
 								<Redirect
-									to={'/blog/v4'}
+									to={`${baseURL}/v${latestVersion}`}
 								/>
 							);
 						}}
