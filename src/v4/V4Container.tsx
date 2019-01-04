@@ -109,10 +109,12 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 						<Route
 							exact={true}
 							path={`${match.path}/gallery`}
-							render={() => {
+							render={(props) => {
 								return (
 									<GalleryContainer
 										{...this.props}
+										{...props}
+										history={props.history}
 									/>
 								);
 							}}
