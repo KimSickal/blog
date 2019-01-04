@@ -17,6 +17,7 @@ import {
 
 interface ComponentProps {
 	post: Post;
+	onClick?: () => void;
 }
 
 interface ComponentStates {
@@ -40,6 +41,7 @@ export class ArtworkPostImageComponent extends React.Component<ComponentProps, C
 			mouseOver: false,
 		};
 		this.onClickArrow = this.onClickArrow.bind(this);
+		this.onClickImage = this.onClickImage.bind(this);
 	}
 
 	private loadImage(imageAddress: string) {
@@ -55,6 +57,23 @@ export class ArtworkPostImageComponent extends React.Component<ComponentProps, C
 			});
 		});
 		img.src = file;
+	}
+
+	private onClickImage() {
+		const {
+			currentImage,
+		} = this.state;
+
+		if(currentImage === null) {
+			return;
+		}
+
+		if(this.props.onClick === undefined) {
+			window.open(currentImage);
+			return;
+		}
+
+		this.props.onClick();
 	}
 
 	public componentDidMount() {
@@ -86,11 +105,13 @@ export class ArtworkPostImageComponent extends React.Component<ComponentProps, C
 			this.setState({
 				currentImageHeight: comp.clientHeight,
 			});
-			window.scrollTo({
-				behavior: 'smooth',
-				left: 0,
-				top: 478,
-			});
+			if(this.props.onClick === undefined) {
+				window.scrollTo({
+					behavior: 'smooth',
+					left: 0,
+					top: 478,
+				});
+			}
 		}
 	}
 
@@ -172,7 +193,7 @@ export class ArtworkPostImageComponent extends React.Component<ComponentProps, C
 						...styles.content_img_shadow,
 						opacity,
 					}}
-					onClick={() => window.open(currentImage)}
+					onClick={this.onClickImage}
 				>
 					{
 						images.length > 1 ?
