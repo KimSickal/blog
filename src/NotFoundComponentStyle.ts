@@ -5,7 +5,6 @@ import {
 export const styles: { [key: string]: CSSProperties} = {
 	container: {
 		position: 'absolute',
-		top: '0px',
 		left: '0px',
 		display: 'flex',
 		flexDirection: 'column',
