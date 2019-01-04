@@ -12,22 +12,6 @@ import {
 } from './models';
 
 import {
-	V1Container,
-} from './v1/V1Container';
-
-import {
-	V2Container,
-} from './v2/V2Container';
-
-import {
-	V3Container,
-} from './v3/V3Container';
-
-import {
-	V4Container,
-} from './v4/V4Container';
-
-import {
 	NotFoundComponent,
 } from './NotFoundComponent';
 
@@ -35,6 +19,7 @@ import {
 	latestVersion,
 	screenSize,
 	baseURL,
+	versions,
 } from './constants';
 
 import './App.css';
@@ -106,20 +91,6 @@ class App extends React.Component<{}, ComponentStates> {
 						</select>
 					</div>
 				</div>
-				{/* {
-					(() => {
-						switch (this.state.selectedVersion) {
-							case 1:
-								return <V1Container {...this.state} />;
-							case 2:
-								return <V2Container {...this.state} />;
-							case 3:
-								return <V3Container {...this.state} />;
-							default:
-								return null;
-						}
-					})()
-				} */}
 				<Switch>
 					<Route
 						exact={true}
@@ -132,47 +103,23 @@ class App extends React.Component<{}, ComponentStates> {
 							);
 						}}
 					/>
-					<Route
-						path={`${baseURL}/v4`}
-						render={(props) => {
+					{
+						versions.map((Component,i) => {
 							return (
-								<V4Container
-									{...this.state}
-									match={props.match}
+								<Route
+									path={`${baseURL}/v${i + 1}`}
+									render={(props) => {
+										return (
+											<Component
+												{...this.state}
+												match={props.match}
+											/>
+										);
+									}}
 								/>
 							);
-						}}
-					/>
-					<Route
-						path={`${baseURL}/v3`}
-						render={() => {
-							return (
-								<V3Container
-									{...this.state}
-								/>
-							);
-						}}
-					/>
-					<Route
-						path={`${baseURL}/v2`}
-						render={() => {
-							return (
-								<V2Container
-									{...this.state}
-								/>
-							);
-						}}
-					/>
-					<Route
-						path={`${baseURL}/v1`}
-						render={() => {
-							return (
-								<V1Container
-									{...this.state}
-								/>
-							);
-						}}
-					/>
+						})
+					}
 					<Route
 						component={NotFoundComponent}
 					/>
