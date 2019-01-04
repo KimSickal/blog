@@ -6,7 +6,7 @@ import {
 
 import {
 	defaultText,
-} from 'src/constants/text';
+} from 'src/constants';
 
 export interface Post {
 	date: string;

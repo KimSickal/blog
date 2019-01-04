@@ -32,12 +32,10 @@ import {
 } from './NotFoundComponent';
 
 import {
-	screenSize,
-} from './constants/screen';
-
-import {
 	latestVersion,
-} from './constants/constants';
+	screenSize,
+	baseURL,
+} from './constants';
 
 import './App.css';
 
@@ -125,7 +123,7 @@ class App extends React.Component<{}, ComponentStates> {
 				<Switch>
 					<Route
 						exact={true}
-						path={'/blog'}
+						path={baseURL}
 						render={() => {
 							return (
 								<Redirect
@@ -135,7 +133,7 @@ class App extends React.Component<{}, ComponentStates> {
 						}}
 					/>
 					<Route
-						path={'/blog/v4'}
+						path={`${baseURL}/v4`}
 						render={(props) => {
 							return (
 								<V4Container
@@ -146,7 +144,7 @@ class App extends React.Component<{}, ComponentStates> {
 						}}
 					/>
 					<Route
-						path={'/blog/v3'}
+						path={`${baseURL}/v3`}
 						render={() => {
 							return (
 								<V3Container
@@ -156,7 +154,7 @@ class App extends React.Component<{}, ComponentStates> {
 						}}
 					/>
 					<Route
-						path={'/blog/v2'}
+						path={`${baseURL}/v2`}
 						render={() => {
 							return (
 								<V2Container
@@ -166,7 +164,7 @@ class App extends React.Component<{}, ComponentStates> {
 						}}
 					/>
 					<Route
-						path={'/blog/v1'}
+						path={`${baseURL}/v1`}
 						render={() => {
 							return (
 								<V1Container
