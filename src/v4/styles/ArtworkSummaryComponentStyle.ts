@@ -27,6 +27,7 @@ export const styles: { [key: string]: CSSProperties} = {
 	title_p: {
 		margin: '0px',
 		fontSize: '24px',
+		fontWeight: 400,
 		maxWidth: '100%',
 		color: 'black',
 	},
