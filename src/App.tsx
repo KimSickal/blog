@@ -49,7 +49,7 @@ class App extends React.Component<{}, ComponentStates> {
 
 	private handleSelect(event: React.FormEvent<HTMLSelectElement>) {
 		this.setState({ selectedVersion: parseInt(event.currentTarget.value, 10) });
-		window.location.pathname = `blog/v${event.currentTarget.value}`;
+		window.location.pathname = `${baseURL}/v${event.currentTarget.value}`;
 	}
 
 	private calculateScreenWidth() {

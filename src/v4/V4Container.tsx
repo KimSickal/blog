@@ -5,7 +5,6 @@ import {
 	Switch,
 	Route,
 	Redirect,
-	Link,
 } from 'react-router-dom';
 
 import {
@@ -13,13 +12,12 @@ import {
 } from 'src/NotFoundComponent';
 
 import {
-	tabList,
 	Post,
-	selectedStyle,
 } from '../models';
 
 import {
 	BannerComponent,
+	MenuBarComponent,
 } from './components';
 
 import {
@@ -38,11 +36,7 @@ interface ComponentProps {
 	screenWidth: number;
 }
 
-interface ComponentStates {
-	selectedTab: number;
-}
-
-export class V4Container extends React.Component<ComponentProps, ComponentStates> {
+export class V4Container extends React.Component<ComponentProps> {
 	constructor(props: ComponentProps) {
 		super(props);
 		this.state = {
@@ -56,33 +50,15 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 			match,
 		} = this.props;
 
-		const {
-			selectedTab,
-		} = this.state;
-
 		return (
 			<div style={styles.container}>
 				<BannerComponent />
 				<div
 					style={{ ...styles.container_contents, width: this.props.screenWidth }}
 				>
-					<div style={styles.menuBar}>
-						{
-							tabList.map((e, i) => {
-								return (
-									<Link
-										to={`${match.path}/${e}`}
-										style={styles[selectedStyle('menuBar_menu', selectedTab === i)]}
-										key={i}
-									>
-										<p style={styles[selectedStyle('menuBar_menu_p', selectedTab === i)]}>
-											{e}
-										</p>
-									</Link>
-								);
-							})
-						}
-					</div>
+					<MenuBarComponent
+						{...this.props}
+					/>
 					<Switch>
 						<Route
 							exact={true}
