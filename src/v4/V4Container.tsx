@@ -25,6 +25,7 @@ import {
 	ArtowrkPostContainer,
 	PostListContainer,
 	GalleryContainer,
+	EtcContainer,
 } from './containers';
 
 import {
@@ -117,6 +118,16 @@ export class V4Container extends React.Component<ComponentProps, ComponentStates
 									<GalleryContainer
 										{...this.props}
 										{...props}
+									/>
+								);
+							}}
+						/>
+						<Route
+							exact={true}
+							path={`${match.path}/etc`}
+							render={() => {
+								return (
+									<EtcContainer
 									/>
 								);
 							}}
