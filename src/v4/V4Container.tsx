@@ -13,6 +13,7 @@ import {
 
 import {
 	Post,
+	tabList,
 } from '../models';
 
 import {
@@ -36,7 +37,11 @@ interface ComponentProps {
 	screenWidth: number;
 }
 
-export class V4Container extends React.Component<ComponentProps> {
+interface ComponentStates {
+	selectedTab: number;
+}
+
+export class V4Container extends React.Component<ComponentProps, ComponentStates> {
 	constructor(props: ComponentProps) {
 		super(props);
 		this.state = {
@@ -44,11 +49,32 @@ export class V4Container extends React.Component<ComponentProps> {
 		};
 	}
 
+	public componentDidUpdate({}: ComponentProps, prevStates: ComponentStates) {
+		const {
+			match,
+		} = this.props;
+
+		const currentTab = window.location.pathname.slice(match.path.length + 1).split('/')[0];
+		tabList.map((tabName, i) => {
+			if(tabName.substring(1) === currentTab.substring(1)) {
+				if(prevStates.selectedTab !== i) {
+					this.setState({
+						selectedTab: i,
+					});
+				}
+			}
+		});
+	}
+
 	public render() {
 		const {
 			data,
 			match,
 		} = this.props;
+
+		const {
+			selectedTab,
+		} = this.state;
 
 		return (
 			<div style={styles.container}>
@@ -58,6 +84,7 @@ export class V4Container extends React.Component<ComponentProps> {
 				>
 					<MenuBarComponent
 						{...this.props}
+						selectedTab={selectedTab}
 					/>
 					<Switch>
 						<Route
@@ -90,7 +117,6 @@ export class V4Container extends React.Component<ComponentProps> {
 									<GalleryContainer
 										{...this.props}
 										{...props}
-										history={props.history}
 									/>
 								);
 							}}
