@@ -7,5 +7,5 @@ Personal blog project of @KimSickal
 
 ## Goal
  - [ ] Info page (resume)
- - [ ] Archiving personal graphic works, projects
- - [ ] Archiving development process of this page
+ - [x] Archiving personal graphic works, projects
+ - [x] Archiving development process of this page
